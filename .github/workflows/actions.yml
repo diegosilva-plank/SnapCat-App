@@ -25,5 +25,5 @@ jobs:
       - name: Run on Android
         run: npm run android
 
-      - main: Run on iOS
+      - name: Run on iOS
         run: npm run ios
