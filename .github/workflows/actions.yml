@@ -21,9 +21,3 @@ jobs:
 
       - name: Lint
         run: npm run lint
-
-      - name: Run on Android
-        run: npm run android
-
-      - name: Run on iOS
-        run: npm run ios
