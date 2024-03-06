@@ -1,6 +1,21 @@
 {
-  "compilerOptions": {},
   "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    // Path alias config
+    "baseUrl": ".",
+    "paths": {
+      // This needs to be mirrored in babel.config.js
+      // Components is a directory with sub directories
+      "components/*": ["src/components/*"],
+      "contexts/*": ["src/contexts/*"],
+      "hooks/*": ["src/hooks/*"],
+      "screens/*": ["src/screens/*"],
+      "themes/*": ["src/themes/*"],
+      "translations/*": ["src/translations/*"],
+      "assets/*": ["assets/*"]
+    }
+  },
   "include": [
     "**/*",
     "src/App.tsx" // Add the missing file here

@@ -1,6 +1,6 @@
 import { NativeModules, Platform } from 'react-native'
-import { en, pt } from '../../translations/languages'
-import { Language, Translation } from '../../translations/types'
+import { en, pt } from 'translations/languages'
+import { Language, Translation } from 'translations/types'
 
 export const getTranslation = (language: Language): Translation => {
 	switch (language) {

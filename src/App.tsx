@@ -1,15 +1,13 @@
 import { registerRootComponent } from 'expo'
 import React from 'react'
-import { themes } from './themes'
-import { LanguageContextProvider } from './contexts/LanguageContext'
-
-// Naviagation
+import { LanguageContextProvider } from 'contexts/LanguageContext'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { EnterScreen } from './screens/EnterScreen'
-import { ThemeContextProvider } from './contexts/ThemeContext'
-import { useCustomFonts } from './hooks/useCustomFonts'
-import { Feed } from './screens/Feed'
+import { EnterScreen } from 'screens/EnterScreen'
+import { ThemeContextProvider } from 'contexts/ThemeContext'
+import { useCustomFonts } from 'hooks/useCustomFonts'
+import { Feed } from 'screens/Feed'
+import { themes } from './themes'
 
 export type RootStackParamList = {
 	Enter: undefined

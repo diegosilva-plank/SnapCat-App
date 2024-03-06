@@ -1,6 +1,6 @@
 import React, { createContext } from 'react'
 import { Theme, ThemeContextProviderProps } from './types'
-import { themes } from '../../themes'
+import { themes } from 'themes/index'
 
 const ThemeContext = createContext<Theme>(themes.snapcat)
 

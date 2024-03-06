@@ -1,7 +1,7 @@
 import React, { PropsWithChildren, useContext, useState } from 'react'
-import { Language, Translation } from '../../translations/types'
 import { LanguageContextContent } from './types'
 import { getDeviceLanguage, getTranslation } from './utils'
+import { Language, Translation } from 'translations/types'
 
 const initialLanguage = getDeviceLanguage()
 const initialTranslation = getTranslation(initialLanguage)

@@ -1,4 +1,4 @@
-import { Language, Translation } from '../../translations/types'
+import { Language, Translation } from 'translations/types'
 
 export type LanguageContextContent = {
 	translation: Translation

@@ -1,4 +1,4 @@
-import { Theme } from '../contexts/ThemeContext/types'
+import { Theme } from 'contexts/ThemeContext/types'
 
 export const snapcatTheme: Theme = {
 	primary: '#8A29E8',
@@ -7,6 +7,6 @@ export const snapcatTheme: Theme = {
 	black: '#000000',
 	white: '#FFFFFF',
 	gray: '#F0F1DF',
-	enterLogo: require('../../public/SnapCat/enter.png'),
-	titleLogo: require('../../public/SnapCat/title.png'),
+	enterLogo: require('../../assets/SnapCat/enter.png'),
+	titleLogo: require('../../assets/SnapCat/title.png'),
 }

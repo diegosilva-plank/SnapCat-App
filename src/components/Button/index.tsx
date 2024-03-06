@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { ButtonProps } from './types'
-import { Font } from '../../hooks/useCustomFonts/types'
+import { Font } from 'hooks/useCustomFonts/types'
 
 export const Button = (props: ButtonProps) => {
 	const styles = stylesHandler(props)

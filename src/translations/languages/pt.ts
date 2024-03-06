@@ -1,4 +1,4 @@
-import { Translation } from '../types'
+import { Translation } from 'translations/types'
 
 export const pt: Translation = {
 	enter: 'entrar',

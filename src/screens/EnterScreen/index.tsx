@@ -1,10 +1,10 @@
-import { Image, StyleSheet, View } from 'react-native'
-import { useTranslation } from '../../contexts/LanguageContext'
-import { useTheme } from '../../contexts/ThemeContext'
-import { Theme } from '../../contexts/ThemeContext/types'
+import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
 import React from 'react'
-import { Button } from '../../components/Button'
 import { EnterScreenProps } from './types'
+import { useTheme } from 'contexts/ThemeContext'
+import { useTranslation } from 'contexts/LanguageContext'
+import { Button } from 'components/Button'
+import { Theme } from 'contexts/ThemeContext/types'
 
 export const EnterScreen = ({ navigation }: EnterScreenProps) => {
 	const theme = useTheme()
@@ -13,7 +13,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
 
 	return (
 		<View style={style.wrapper}>
-			<Image source={theme.enterLogo} />
+			<Image source={theme.enterLogo as ImageSourcePropType} />
 			<View style={style.button}>
 				<Button
 					text={translation.enter}
