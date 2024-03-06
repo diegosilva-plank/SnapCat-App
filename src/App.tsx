@@ -9,9 +9,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { EnterScreen } from './screens/EnterScreen'
 import { ThemeContextProvider } from './contexts/ThemeContext'
 import { useCustomFonts } from './hooks/useCustomFonts'
+import { Feed } from './screens/Feed'
 
 export type RootStackParamList = {
 	Enter: undefined
+	Feed: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -28,6 +30,7 @@ const App = () => {
 				<NavigationContainer>
 					<Stack.Navigator initialRouteName="Enter">
 						<Stack.Screen name="Enter" component={EnterScreen} />
+						<Stack.Screen name="Feed" component={Feed} />
 					</Stack.Navigator>
 				</NavigationContainer>
 			</ThemeContextProvider>

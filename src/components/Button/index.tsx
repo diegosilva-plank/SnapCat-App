@@ -8,7 +8,7 @@ export const Button = (props: ButtonProps) => {
 	const elevation = props.hasShadow ? styles.shadowProp : {}
 
 	return (
-		<Pressable>
+		<Pressable onPress={props.onClick}>
 			<View style={[styles.button, elevation]}>
 				<Text style={styles.text}>{props.text}</Text>
 			</View>

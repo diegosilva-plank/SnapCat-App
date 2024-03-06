@@ -1,5 +1,5 @@
 import { Translation } from '../types'
 
 export const pt: Translation = {
-	enter: 'Entrar',
+	enter: 'entrar',
 }
