@@ -10,6 +10,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.14",
+    "@react-navigation/native-stack": "^6.9.22",
     "@types/react": "~18.2.45",
     "expo": "~50.0.8",
     "expo-status-bar": "~1.11.1",

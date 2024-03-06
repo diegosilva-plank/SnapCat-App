@@ -1,37 +1,32 @@
 import { registerRootComponent } from 'expo'
-import { StyleSheet, Text } from 'react-native'
 import React from 'react'
-import ThemeContextProvider, { useTheme } from './contexts/ThemeContext'
+import ThemeContextProvider from './contexts/ThemeContext'
 import { themes } from './themes'
-import { Theme } from './contexts/ThemeContext/types'
-import {
-	LanguageContextProvider,
-	useTranslation,
-} from './contexts/LanguageContext'
+import { LanguageContextProvider } from './contexts/LanguageContext'
+
+// Naviagation
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { EnterScreen } from './screens/EnterScreen'
+
+export type RootStackParamList = {
+	Enter: undefined
+}
+
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = () => {
 	return (
 		<LanguageContextProvider>
 			<ThemeContextProvider theme={themes.snapcat}>
-				<Child />
+				<NavigationContainer>
+					<Stack.Navigator initialRouteName="Enter">
+						<Stack.Screen name="Enter" component={EnterScreen} />
+					</Stack.Navigator>
+				</NavigationContainer>
 			</ThemeContextProvider>
 		</LanguageContextProvider>
 	)
 }
-
-function Child(): JSX.Element {
-	const theme = useTheme()
-	const style = stylesHandler(theme)
-	const { translation } = useTranslation()
-	return <Text style={style.wrapper}>{translation.enter}</Text>
-}
-
-const stylesHandler = (theme: Theme) =>
-	StyleSheet.create({
-		wrapper: {
-			backgroundColor: theme.primary,
-			height: '100%',
-		},
-	})
 
 export default registerRootComponent(App)

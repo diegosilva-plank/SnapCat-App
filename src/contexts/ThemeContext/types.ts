@@ -7,8 +7,8 @@ export type Theme = {
 	black: string
 	white: string
 	gray: string
-	enterLogoUrl: string
-	titleLogoUrl: string
+	enterLogo: unknown
+	titleLogo: unknown
 }
 
 export type ThemeContextProviderProps = PropsWithChildren<{

@@ -7,6 +7,6 @@ export const snapcatTheme: Theme = {
 	black: '#000000',
 	white: '#FFFFFF',
 	gray: '#F0F1DF',
-	enterLogoUrl: 'SnapCat/enter.svg',
-	titleLogoUrl: 'SnapCat/title.svg',
+	enterLogo: require('../../public/SnapCat/enter.png'),
+	titleLogo: require('../../public/SnapCat/title.png'),
 }
