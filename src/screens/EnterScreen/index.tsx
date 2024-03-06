@@ -3,6 +3,7 @@ import { useTranslation } from '../../contexts/LanguageContext'
 import { useTheme } from '../../contexts/ThemeContext'
 import { Theme } from '../../contexts/ThemeContext/types'
 import React from 'react'
+import { Button } from '../../components/Button'
 
 export const EnterScreen = () => {
 	const theme = useTheme()
@@ -13,6 +14,14 @@ export const EnterScreen = () => {
 		<View style={style.wrapper}>
 			<Image source={theme.enterLogo} />
 			<Text>{translation.enter}</Text>
+			<Button
+				text="Enter"
+				backgroundColor={theme.white}
+				color={theme.primary}
+				isBold
+				hasShadow
+				onClick={() => {}}
+			/>
 		</View>
 	)
 }

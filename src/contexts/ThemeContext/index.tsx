@@ -4,7 +4,7 @@ import { themes } from '../../themes'
 
 const ThemeContext = createContext<Theme>(themes.snapcat)
 
-export default function ThemeContextProvider(props: ThemeContextProviderProps) {
+export const ThemeContextProvider = (props: ThemeContextProviderProps) => {
 	return (
 		<ThemeContext.Provider value={props.theme}>
 			{props.children}
