@@ -11,6 +11,6 @@ export type Theme = {
 	titleLogoUrl: string
 }
 
-export type ThemeContentProps = PropsWithChildren<{
+export type ThemeContextProviderProps = PropsWithChildren<{
 	theme: Theme
 }>
