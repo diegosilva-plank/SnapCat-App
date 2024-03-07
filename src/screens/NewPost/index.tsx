@@ -1,14 +1,14 @@
 import { SafeAreaView, Text } from 'react-native'
 import React from 'react'
-import { FeedProps } from './types'
 import { TitleBar } from 'components/TitleBar'
+import { NewPostScreenProps } from './types'
 
-export const Feed = ({ navigation }: FeedProps) => {
+export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   navigation
   return (
     <SafeAreaView>
       <TitleBar />
-      <Text>Feed</Text>
+      <Text>New Post</Text>
     </SafeAreaView>
   )
 }

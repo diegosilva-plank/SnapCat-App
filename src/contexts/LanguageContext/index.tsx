@@ -7,22 +7,22 @@ const initialLanguage = getDeviceLanguage()
 const initialTranslation = getTranslation(initialLanguage)
 
 const LanguageContext = React.createContext<LanguageContextContent>({
-	translation: initialTranslation,
-	setLanguage: () => {},
+  translation: initialTranslation,
+  setLanguage: () => {},
 })
 
 export const LanguageContextProvider = (props: PropsWithChildren) => {
-	const [translation, setTranslation] =
-		useState<Translation>(initialTranslation)
-	const setLanguage = (language: Language) => {
-		setTranslation(getTranslation(language))
-	}
+  const [translation, setTranslation] =
+    useState<Translation>(initialTranslation)
+  const setLanguage = (language: Language) => {
+    setTranslation(getTranslation(language))
+  }
 
-	return (
-		<LanguageContext.Provider value={{ translation, setLanguage }}>
-			{props.children}
-		</LanguageContext.Provider>
-	)
+  return (
+    <LanguageContext.Provider value={{ translation, setLanguage }}>
+      {props.children}
+    </LanguageContext.Provider>
+  )
 }
 
 export const useTranslation = () => useContext(LanguageContext)
