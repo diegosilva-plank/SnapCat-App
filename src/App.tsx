@@ -23,6 +23,10 @@ const App = () => {
   if (!fontsLoaded) {
     return null
   }
+  const [fontsLoaded] = useCustomFonts()
+  if (!fontsLoaded) {
+    return null
+  }
 
   return (
     <LanguageContextProvider>
