@@ -26,7 +26,12 @@ const App = () => {
 		<LanguageContextProvider>
 			<ThemeContextProvider theme={themes.snapcat}>
 				<NavigationContainer>
-					<Stack.Navigator initialRouteName="Enter">
+					<Stack.Navigator
+						initialRouteName="Enter"
+						screenOptions={{
+							headerShown: false,
+						}}
+					>
 						<Stack.Screen name="Enter" component={EnterScreen} />
 						<Stack.Screen name="Feed" component={Feed} />
 					</Stack.Navigator>

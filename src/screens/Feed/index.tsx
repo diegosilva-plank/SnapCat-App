@@ -1,12 +1,14 @@
-import { Text, View } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 import React from 'react'
 import { FeedProps } from './types'
+import { TitleBar } from 'components/TitleBar'
 
 export const Feed = ({ navigation }: FeedProps) => {
 	navigation
 	return (
-		<View>
+		<SafeAreaView>
+			<TitleBar />
 			<Text>Feed</Text>
-		</View>
+		</SafeAreaView>
 	)
 }
