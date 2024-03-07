@@ -10,30 +10,30 @@ import { Feed } from 'screens/Feed'
 import { themes } from './themes'
 
 export type RootStackParamList = {
-	Enter: undefined
-	Feed: undefined
+  Enter: undefined
+  Feed: undefined
 }
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = () => {
-	const [fontsLoaded] = useCustomFonts()
-	if (!fontsLoaded) {
-		return null
-	}
+  const [fontsLoaded] = useCustomFonts()
+  if (!fontsLoaded) {
+    return null
+  }
 
-	return (
-		<LanguageContextProvider>
-			<ThemeContextProvider theme={themes.snapcat}>
-				<NavigationContainer>
-					<Stack.Navigator initialRouteName="Enter">
-						<Stack.Screen name="Enter" component={EnterScreen} />
-						<Stack.Screen name="Feed" component={Feed} />
-					</Stack.Navigator>
-				</NavigationContainer>
-			</ThemeContextProvider>
-		</LanguageContextProvider>
-	)
+  return (
+    <LanguageContextProvider>
+      <ThemeContextProvider theme={themes.snapcat}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Enter">
+            <Stack.Screen name="Enter" component={EnterScreen} />
+            <Stack.Screen name="Feed" component={Feed} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ThemeContextProvider>
+    </LanguageContextProvider>
+  )
 }
 
 export default registerRootComponent(App)

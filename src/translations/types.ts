@@ -1,8 +1,8 @@
 export type Translation = {
-	enter: string
+  enter: string
 }
 
 export enum Language {
-	en = 'en',
-	pt = 'pt',
+  en = 'en',
+  pt = 'pt',
 }
