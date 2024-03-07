@@ -19,7 +19,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
 
   return (
     <SafeAreaView style={style.wrapper}>
-      <Image source={theme.enterLogo as ImageSourcePropType} />
+      <Image source={theme.logos.enter as ImageSourcePropType} />
       <View style={style.button}>
         <Button
           text={translation.enter}

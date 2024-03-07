@@ -8,6 +8,8 @@ import { ThemeContextProvider } from 'contexts/ThemeContext'
 import { useCustomFonts } from 'hooks/useCustomFonts'
 import { Feed } from 'screens/Feed'
 import { themes } from './themes'
+import { Theme } from 'contexts/ThemeContext/types'
+import { SafeAreaView, StyleSheet } from 'react-native'
 
 export type RootStackParamList = {
   Enter: undefined
@@ -23,15 +25,12 @@ const App = () => {
   if (!fontsLoaded) {
     return null
   }
-  const [fontsLoaded] = useCustomFonts()
-  if (!fontsLoaded) {
-    return null
-  }
+  const styles = stylesHandler(themes.snapcat)
 
   return (
     <LanguageContextProvider>
       <ThemeContextProvider theme={themes.snapcat}>
-        <NavigationContainer>
+        <SafeAreaView style={styles.wrapper}>
           <Stack.Navigator
             initialRouteName="Enter"
             screenOptions={{
@@ -41,10 +40,18 @@ const App = () => {
             <Stack.Screen name="Enter" component={EnterScreen} />
             <Stack.Screen name="Feed" component={Feed} />
           </Stack.Navigator>
-        </NavigationContainer>
+        </SafeAreaView>
       </ThemeContextProvider>
     </LanguageContextProvider>
   )
 }
+
+const stylesHandler = (theme: Theme) =>
+  StyleSheet.create({
+    wrapper: {
+      backgroundColor: theme.primary,
+      height: '100%',
+    },
+  })
 
 export default registerRootComponent(App)

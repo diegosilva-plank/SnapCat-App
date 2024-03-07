@@ -8,7 +8,7 @@ export const TitleBar = () => {
   return (
     <View style={styles.container}>
       <Image
-        source={theme.titleLogo as ImageSourcePropType}
+        source={theme.logos.title as ImageSourcePropType}
         style={{ width: 200, height: 60 }}
       />
     </View>
