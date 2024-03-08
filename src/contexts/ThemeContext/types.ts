@@ -7,6 +7,10 @@ export type Theme = {
   black: string
   white: string
   gray: string
+  skeleton: {
+    primary: string
+    secondary: string
+  }
   logos: {
     enter: unknown
     title: unknown
