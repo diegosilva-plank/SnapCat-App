@@ -4,11 +4,13 @@ module.exports = function (api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
+      'module:react-native-dotenv',
       [
         'module-resolver',
         {
           alias: {
             // This needs to be mirrored in tsconfig.json
+            api: './src/api',
             components: './src/components',
             contexts: './src/contexts',
             hooks: './src/hooks',
