@@ -1,4 +1,10 @@
-import { SafeAreaView, StyleSheet, View } from 'react-native'
+import {
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  View,
+} from 'react-native'
 import React from 'react'
 import { TitleBar } from 'components/TitleBar'
 import { NavBar } from 'components/NavBar'
@@ -25,6 +31,7 @@ const stylesHandler = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
+      paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
       backgroundColor: theme.white,
     },
     content: {
