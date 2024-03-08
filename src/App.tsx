@@ -10,6 +10,8 @@ import { Feed } from 'screens/Feed'
 import { themes } from './themes'
 import { Theme } from 'contexts/ThemeContext/types'
 import { SafeAreaView, StyleSheet } from 'react-native'
+import { NewPostScreen } from 'screens/NewPost'
+import { NewPetScreen } from 'screens/NewPet'
 
 export type RootStackParamList = {
   Enter: undefined
@@ -31,15 +33,20 @@ const App = () => {
     <LanguageContextProvider>
       <ThemeContextProvider theme={themes.snapcat}>
         <SafeAreaView style={styles.wrapper}>
-          <Stack.Navigator
-            initialRouteName="Enter"
-            screenOptions={{
-              headerShown: false,
-            }}
-          >
-            <Stack.Screen name="Enter" component={EnterScreen} />
-            <Stack.Screen name="Feed" component={Feed} />
-          </Stack.Navigator>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Enter"
+              screenOptions={{
+                headerShown: false,
+                animation: 'none',
+              }}
+            >
+              <Stack.Screen name="Enter" component={EnterScreen} />
+              <Stack.Screen name="Feed" component={Feed} />
+              <Stack.Screen name="NewPost" component={NewPostScreen} />
+              <Stack.Screen name="NewPet" component={NewPetScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
         </SafeAreaView>
       </ThemeContextProvider>
     </LanguageContextProvider>

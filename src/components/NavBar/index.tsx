@@ -8,12 +8,9 @@ import {
 } from 'react-native'
 import React from 'react'
 import { Theme } from 'contexts/ThemeContext/types'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { RootStackParamList } from 'src/App'
+import { NavBarProps } from './types'
 
-export const NavBar = ({
-  navigation,
-}: NativeStackScreenProps<RootStackParamList>) => {
+export const NavBar = ({ navigation }: NavBarProps) => {
   const theme = useTheme()
   const styles = stylesHandler(theme)
 
@@ -49,7 +46,7 @@ const stylesHandler = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 70,
+      gap: 75,
     },
     bottomBar: {
       position: 'absolute',

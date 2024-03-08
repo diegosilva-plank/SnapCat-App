@@ -1,22 +1,17 @@
 import { SafeAreaView, StyleSheet, View } from 'react-native'
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import { TitleBar } from 'components/TitleBar'
 import { NavBar } from 'components/NavBar'
-import { NativeStackScreenProps } from '@react-navigation/native-stack'
-import { RootStackParamList } from 'src/App'
+import { ScreenLayoutProps } from './types'
 
-export const ScreenLayout = ({
-  children,
-  navigation,
-  route,
-}: PropsWithChildren<NativeStackScreenProps<RootStackParamList>>) => {
+export const ScreenLayout = ({ children, navigation }: ScreenLayoutProps) => {
   const styles = stylesHandler()
   return (
     <SafeAreaView style={styles.container}>
       <TitleBar />
       <View style={styles.content}>{children}</View>
       <View style={styles.navBarContainer}>
-        <NavBar navigation={navigation} route={route} />
+        <NavBar navigation={navigation} />
       </View>
     </SafeAreaView>
   )
