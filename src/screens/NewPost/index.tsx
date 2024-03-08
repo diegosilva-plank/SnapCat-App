@@ -1,7 +1,7 @@
 import { Text } from 'react-native'
 import React from 'react'
 import { NewPostScreenProps } from './types'
-import { ScreenLayout } from 'src/layouts/ScreenLayout'
+import { ScreenLayout } from 'layouts/ScreenLayout'
 
 export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   return (
