@@ -3,6 +3,7 @@ import { PostProps } from './types'
 import React from 'react'
 import { calculateTimePast } from 'utils/calculateTimePast'
 import { postStylesHandler } from './styles'
+import { useTranslation } from 'contexts/LanguageContext'
 
 const windowWidth = Dimensions.get('window').width
 const SCREEN_PERCENTAGE = 0.9
@@ -10,6 +11,7 @@ const postWidth = windowWidth * SCREEN_PERCENTAGE
 
 export const Post = ({ post }: PostProps) => {
   const styles = postStylesHandler(postWidth)
+  const { translation } = useTranslation()
 
   return (
     <View style={styles.container}>
@@ -22,7 +24,7 @@ export const Post = ({ post }: PostProps) => {
           <Text style={styles.nicknameText}>@{post.pet.nickname}</Text>
         </View>
         <Text style={styles.timeText}>
-          {calculateTimePast(post.createdUTCDateTime)}
+          {calculateTimePast(post.createdUTCDateTime, translation)}
         </Text>
       </View>
       <Image

@@ -1,4 +1,9 @@
-export const calculateTimePast = (created: string) => {
+import { Translation } from 'translations/types'
+
+export const calculateTimePast = (
+  created: string,
+  translation: Translation,
+) => {
   const createdDate = new Date(created)
   const currentDate = new Date()
 
@@ -15,16 +20,16 @@ export const calculateTimePast = (created: string) => {
 
   // Determine the appropriate unit and value to display
   if (years > 0) {
-    return `${years} year${years !== 1 ? 's' : ''} ago`
+    return translation.timePast.years(years)
   } else if (months > 0) {
-    return `${months} month${months !== 1 ? 's' : ''} ago`
+    return translation.timePast.months(months)
   } else if (days > 0) {
-    return `${days} day${days !== 1 ? 's' : ''} ago`
+    return translation.timePast.days(days)
   } else if (hours > 0) {
-    return `${hours} hour${hours !== 1 ? 's' : ''} ago`
+    return translation.timePast.hours(hours)
   } else if (minutes > 0) {
-    return `${minutes} min ago`
+    return translation.timePast.minutes(minutes)
   } else {
-    return 'just now'
+    return translation.timePast.now
   }
 }
