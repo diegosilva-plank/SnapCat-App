@@ -5,6 +5,7 @@ export const en: Translation = {
   newPostScreen: {
     title: 'New post',
     selectImage: 'Select an image',
+    petSelector: 'What pet is in this picture?',
   },
   timePast: {
     now: 'Just now',

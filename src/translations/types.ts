@@ -3,6 +3,7 @@ export type Translation = {
   newPostScreen: {
     title: string
     selectImage: string
+    petSelector: string
   }
   timePast: {
     now: string

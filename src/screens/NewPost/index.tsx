@@ -1,21 +1,14 @@
-import {
-  Dimensions,
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
-import React from 'react'
+import { Dimensions, Image, Pressable, Text, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { NewPostScreenProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
-import { Font } from 'hooks/useCustomFonts/types'
 import { BackArrow } from 'components/BackArrow'
 import { useTranslation } from 'contexts/LanguageContext'
-import { Theme } from 'contexts/ThemeContext/types'
 import { useTheme } from 'contexts/ThemeContext'
 import { Button } from 'components/Button'
 import { useImageSelector } from 'hooks/useImageSelector'
+import { PetSelector } from 'components/PetSelector'
+import { newPostStylesHandler } from './styles'
 
 const windowWidth = Dimensions.get('window').width
 const imageWidth = windowWidth * 0.85
@@ -23,8 +16,13 @@ const imageWidth = windowWidth * 0.85
 export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   const { translation } = useTranslation()
   const theme = useTheme()
-  const styles = stylesHandler(imageWidth, theme)
+  const styles = newPostStylesHandler(imageWidth, theme)
   const { image, ImageSelector, setShowImageSelector } = useImageSelector()
+  const [selectedPet, setSelectedPet] = useState<string>('')
+
+  useEffect(() => {
+    console.log(selectedPet)
+  }, [selectedPet])
 
   return (
     <ScreenLayout navigation={navigation}>
@@ -52,36 +50,15 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
             />
           </View>
         )}
+        <View style={styles.petSelectorContainer}>
+          <Text style={styles.text}>
+            {translation.newPostScreen.petSelector}
+          </Text>
+          <PetSelector
+            onSelectPet={(nickname: string) => setSelectedPet(nickname)}
+          />
+        </View>
       </View>
     </ScreenLayout>
   )
 }
-
-const stylesHandler = (imageWidth: number, theme: Theme) =>
-  StyleSheet.create({
-    container: {
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    titleContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      marginHorizontal: 20,
-      marginVertical: 25,
-    },
-    title: {
-      position: 'absolute',
-      fontSize: 26,
-      width: '100%',
-      textAlign: 'center',
-      fontFamily: Font.Poppins_SemiBold,
-    },
-    image: {
-      width: imageWidth,
-      height: (imageWidth * 9) / 16,
-      borderRadius: 20,
-      backgroundColor: theme.gray,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-  })
