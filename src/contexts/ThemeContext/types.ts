@@ -19,6 +19,7 @@ export type Theme = {
     home: unknown
     addPost: unknown
     addPet: unknown
+    backArrow: unknown
   }
 }
 

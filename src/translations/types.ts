@@ -1,5 +1,9 @@
 export type Translation = {
   enter: string
+  newPostScreen: {
+    title: string
+    selectImage: string
+  }
   timePast: {
     now: string
     minutes: (num: number) => string

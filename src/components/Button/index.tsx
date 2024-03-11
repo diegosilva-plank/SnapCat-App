@@ -21,6 +21,7 @@ const stylesHandler = (props: ButtonProps) =>
     button: {
       backgroundColor: props.backgroundColor,
       width: '100%',
+      paddingHorizontal: 15,
       height: 40,
       borderRadius: 20,
       justifyContent: 'center',

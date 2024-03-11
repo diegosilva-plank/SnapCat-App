@@ -2,6 +2,10 @@ import { Translation } from 'translations/types'
 
 export const en: Translation = {
   enter: 'enter',
+  newPostScreen: {
+    title: 'New post',
+    selectImage: 'Select an image',
+  },
   timePast: {
     now: 'Just now',
     minutes: (num: number) => `${num} minute${num !== 1 ? 's' : ''} ago`,

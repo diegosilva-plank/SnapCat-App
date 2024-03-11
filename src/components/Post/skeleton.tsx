@@ -2,9 +2,9 @@ import { Animated, Dimensions, StyleSheet, View } from 'react-native'
 import React, { useEffect, useRef } from 'react'
 import { postStylesHandler } from './styles'
 import { useTheme } from 'contexts/ThemeContext'
+import { SCREEN_PERCENTAGE } from './consts'
 
 const windowWidth = Dimensions.get('window').width
-const SCREEN_PERCENTAGE = 0.9
 const postWidth = windowWidth * SCREEN_PERCENTAGE
 
 export const PostSkeleton = () => {
