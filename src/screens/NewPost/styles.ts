@@ -41,4 +41,11 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
       fontFamily: Font.Poppins_Regular,
       color: theme.black,
     },
+    textInputContainer: {
+      width: '85%',
+      height: 100,
+      borderRadius: 20,
+      backgroundColor: theme.gray,
+      padding: 10,
+    },
   })

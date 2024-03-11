@@ -6,9 +6,11 @@ import { Button } from 'components/Button'
 import { Popup } from 'components/Popup'
 import { imageSelectorStyles } from './styles'
 import { useTheme } from 'contexts/ThemeContext'
+import { useTranslation } from 'contexts/LanguageContext'
 
 export const useImageSelector = () => {
   const theme = useTheme()
+  const { translation } = useTranslation()
   const [showImageSelector, setShowImageSelector] = useState<boolean>(false)
   const [image, setImage] = useState<string | null>(null)
   const { image: cameraImage, takePhoto } = useCamera()
@@ -30,7 +32,7 @@ export const useImageSelector = () => {
     <Popup visible={showImageSelector}>
       <View style={imageSelectorStyles.modal}>
         <Button
-          text="Take a photo"
+          text={translation.imageSelection.camera}
           onClick={() => {
             takePhoto()
             setShowImageSelector(false)
@@ -40,7 +42,7 @@ export const useImageSelector = () => {
           hasShadow
         />
         <Button
-          text="Pick an image from camera roll"
+          text={translation.imageSelection.gallery}
           onClick={() => {
             pickImage()
             setShowImageSelector(false)

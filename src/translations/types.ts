@@ -1,9 +1,14 @@
 export type Translation = {
   enter: string
+  imageSelection: {
+    camera: string
+    gallery: string
+  }
   newPostScreen: {
     title: string
     selectImage: string
     petSelector: string
+    placeholder: string
   }
   timePast: {
     now: string

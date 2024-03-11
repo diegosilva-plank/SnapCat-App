@@ -1,4 +1,11 @@
-import { Dimensions, Image, Pressable, Text, View } from 'react-native'
+import {
+  Dimensions,
+  Image,
+  Pressable,
+  Text,
+  TextInput,
+  View,
+} from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { NewPostScreenProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
@@ -19,10 +26,15 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   const styles = newPostStylesHandler(imageWidth, theme)
   const { image, ImageSelector, setShowImageSelector } = useImageSelector()
   const [selectedPet, setSelectedPet] = useState<string>('')
+  const [text, setText] = useState<string>('')
 
   useEffect(() => {
     console.log(selectedPet)
   }, [selectedPet])
+
+  useEffect(() => {
+    console.log(text)
+  }, [text])
 
   return (
     <ScreenLayout navigation={navigation}>
@@ -56,6 +68,19 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           </Text>
           <PetSelector
             onSelectPet={(nickname: string) => setSelectedPet(nickname)}
+          />
+        </View>
+        <View style={styles.textInputContainer}>
+          <TextInput
+            editable
+            multiline
+            numberOfLines={4}
+            maxLength={200}
+            onChangeText={(text) => setText(text)}
+            value={text}
+            placeholder={translation.newPostScreen.placeholder}
+            placeholderTextColor={theme.terciary}
+            style={{ fontSize: 16, padding: 10 }}
           />
         </View>
       </View>

@@ -2,10 +2,15 @@ import { Translation } from 'translations/types'
 
 export const en: Translation = {
   enter: 'enter',
+  imageSelection: {
+    camera: 'Take a photo',
+    gallery: 'Choose from gallery',
+  },
   newPostScreen: {
     title: 'New post',
     selectImage: 'Select an image',
     petSelector: 'What pet is in this picture?',
+    placeholder: 'Enter your caption',
   },
   timePast: {
     now: 'Just now',
