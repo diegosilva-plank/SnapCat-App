@@ -9,6 +9,7 @@ export type Translation = {
     selectImage: string
     petSelector: string
     placeholder: string
+    errorMessage: string
   }
   timePast: {
     now: string

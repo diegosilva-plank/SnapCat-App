@@ -11,6 +11,7 @@ export const en: Translation = {
     selectImage: 'Select an image',
     petSelector: 'What pet is in this picture?',
     placeholder: 'Enter your caption',
+    errorMessage: 'Please select an image',
   },
   timePast: {
     now: 'Just now',

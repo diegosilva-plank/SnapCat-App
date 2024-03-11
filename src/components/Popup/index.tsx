@@ -1,22 +1,20 @@
 import { Modal, TouchableWithoutFeedback, View } from 'react-native'
 import { PopupProps } from './types'
 import { popupStyles } from './styles'
-import React, { useState } from 'react'
+import React from 'react'
 
-export const Popup = ({ visible, children }: PopupProps) => {
-  const [modalVisible, setModalVisible] = useState(visible)
-
+export const Popup = ({ setVisibility, children }: PopupProps) => {
   return (
     <Modal
       animationType="fade"
       transparent
-      visible={modalVisible}
-      onRequestClose={() => setModalVisible(false)}
+      visible
+      onRequestClose={() => setVisibility(false)}
     >
       <View style={popupStyles.modalOverlay} />
       <TouchableWithoutFeedback
         onPress={() => {
-          setModalVisible(false)
+          setVisibility(false)
         }}
       >
         <View style={popupStyles.popup}>

@@ -16,6 +16,7 @@ import { Button } from 'components/Button'
 import { useImageSelector } from 'hooks/useImageSelector'
 import { PetSelector } from 'components/PetSelector'
 import { newPostStylesHandler } from './styles'
+import { createPostInApi } from 'api/posts'
 
 const windowWidth = Dimensions.get('window').width
 const imageWidth = windowWidth * 0.85
@@ -27,6 +28,22 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   const { image, ImageSelector, setShowImageSelector } = useImageSelector()
   const [selectedPet, setSelectedPet] = useState<string>('')
   const [text, setText] = useState<string>('')
+  const [errorMessage, setErrorMessage] = useState<string>('')
+
+  const createPost = async () => {
+    if (image) {
+      const post = new FormData()
+      console.log(image)
+      console.log(selectedPet)
+      console.log(text)
+      post.append('media', image)
+      post.append('petPublicId', selectedPet)
+      post.append('textContent', text)
+      await createPostInApi(post)
+    } else {
+      setErrorMessage(translation.newPostScreen.errorMessage)
+    }
+  }
 
   useEffect(() => {
     console.log(selectedPet)
@@ -56,7 +73,9 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           <View style={styles.image}>
             <Button
               text={translation.newPostScreen.selectImage}
-              onClick={() => setShowImageSelector(true)}
+              onClick={() => {
+                setShowImageSelector(true)
+              }}
               backgroundColor={theme.primary}
               color={theme.white}
             />
@@ -84,6 +103,13 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           />
         </View>
       </View>
+      <Button
+        text="Post"
+        onClick={createPost}
+        backgroundColor={theme.primary}
+        color={theme.white}
+      />
+      <Text>{errorMessage}</Text>
     </ScreenLayout>
   )
 }

@@ -16,3 +16,18 @@ export const getPostsFromApi = async () => {
     return []
   }
 }
+
+export const createPostInApi = async (post: FormData) => {
+  try {
+    await fetch(ApiRoutes.createPost, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'multipart/form-data',
+      },
+      body: post,
+    })
+  } catch (error) {
+    console.error('Error creating post', error)
+  }
+}

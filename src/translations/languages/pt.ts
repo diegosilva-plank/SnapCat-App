@@ -11,6 +11,7 @@ export const pt: Translation = {
     selectImage: 'Selecione uma imagem',
     petSelector: 'Qual é o bichinho da foto?',
     placeholder: 'Escreva sua legenda aqui',
+    errorMessage: 'Por favor, selecione uma imagem',
   },
   timePast: {
     now: 'Agora mesmo',
