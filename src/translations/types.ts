@@ -1,5 +1,9 @@
 export type Translation = {
-  enter: string
+  buttons: {
+    enter: string
+    add: string
+    cancel: string
+  }
   imageSelection: {
     camera: string
     gallery: string
@@ -10,6 +14,7 @@ export type Translation = {
     petSelector: string
     placeholder: string
     errorMessage: string
+    positng: string
   }
   timePast: {
     now: string

@@ -3,7 +3,7 @@ import * as ImagePicker from 'expo-image-picker'
 import { Platform } from 'react-native'
 
 export const useGallery = () => {
-  const [image, setImage] = useState<string | null>(null)
+  const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null)
 
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
@@ -15,7 +15,7 @@ export const useGallery = () => {
     })
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri)
+      setImage(result.assets[0])
     }
   }
 

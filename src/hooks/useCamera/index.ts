@@ -3,7 +3,7 @@ import * as ImagePicker from 'expo-image-picker'
 import { Alert, Platform } from 'react-native'
 
 export const useCamera = () => {
-  const [image, setImage] = useState<string | null>(null)
+  const [image, setImage] = useState<ImagePicker.ImagePickerAsset | null>(null)
 
   const requestPermission = async () => {
     const { granted } = await ImagePicker.requestCameraPermissionsAsync()
@@ -26,7 +26,7 @@ export const useCamera = () => {
     })
 
     if (!result.canceled) {
-      setImage(result.assets[0].uri)
+      setImage(result.assets[0])
     }
   }
 

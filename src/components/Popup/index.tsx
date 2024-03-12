@@ -3,7 +3,11 @@ import { PopupProps } from './types'
 import { popupStyles } from './styles'
 import React from 'react'
 
-export const Popup = ({ setVisibility, children }: PopupProps) => {
+export const Popup = ({
+  setVisibility,
+  disableClose,
+  children,
+}: PopupProps) => {
   return (
     <Modal
       animationType="fade"
@@ -14,6 +18,7 @@ export const Popup = ({ setVisibility, children }: PopupProps) => {
       <View style={popupStyles.modalOverlay} />
       <TouchableWithoutFeedback
         onPress={() => {
+          if (disableClose) return
           setVisibility(false)
         }}
       >

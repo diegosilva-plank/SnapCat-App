@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from 'react-native'
+import { FlatList, RefreshControl, StyleSheet, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { FeedProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
@@ -7,19 +7,37 @@ import { Post as PostType } from 'types/Post'
 import { getPostsFromApi } from 'api/posts'
 import { PostSkeleton } from 'components/Post/skeleton'
 
-export const Feed = ({ navigation }: FeedProps) => {
+export const Feed = ({ navigation, route }: FeedProps) => {
   const [posts, setPosts] = React.useState<PostType[]>([])
   const [loading, setLoading] = React.useState<boolean>(true)
+  const [refreshing, setRefreshing] = React.useState<boolean>(false)
 
   const getPosts = async () => {
+    setLoading(true)
     const fetchedPosts = await getPostsFromApi()
-    setPosts(fetchedPosts)
+    const sortedPosts = fetchedPosts.sort(
+      (a, b) =>
+        new Date(b.createdUTCDateTime).getTime() -
+        new Date(a.createdUTCDateTime).getTime(),
+    )
+    setPosts(sortedPosts)
     setLoading(false)
+  }
+
+  const onRefresh = async () => {
+    setRefreshing(true)
+  }
+
+  const onScrollEndDrag = async () => {
+    if (refreshing) {
+      await getPosts()
+      setRefreshing(false)
+    }
   }
 
   useEffect(() => {
     getPosts()
-  }, [])
+  }, [route.params?.refresh])
 
   return (
     <ScreenLayout navigation={navigation}>
@@ -32,11 +50,16 @@ export const Feed = ({ navigation }: FeedProps) => {
           </View>
         ) : (
           <FlatList
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }
             showsVerticalScrollIndicator={false}
             contentContainerStyle={styles.contentContainer}
             data={posts}
             renderItem={({ item }) => <Post post={item} />}
             keyExtractor={(item) => item.mediaUrl}
+            extraData={posts}
+            onScrollEndDrag={onScrollEndDrag}
           />
         )}
       </View>

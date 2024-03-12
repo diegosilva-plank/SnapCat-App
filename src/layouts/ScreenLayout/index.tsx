@@ -37,6 +37,7 @@ const stylesHandler = (theme: Theme) =>
     content: {
       flex: 1,
       paddingBottom: NAVBAR_HEIGHT,
+      overflow: 'hidden',
     },
     navBarContainer: {
       position: 'absolute',

@@ -7,7 +7,7 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
     container: {
       flexDirection: 'column',
       alignItems: 'center',
-      gap: 20,
+      gap: 25,
     },
     titleContainer: {
       flexDirection: 'row',
@@ -47,5 +47,30 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
       borderRadius: 20,
       backgroundColor: theme.gray,
       padding: 10,
+    },
+    modal: {
+      width: '90%',
+      height: 200,
+      position: 'absolute',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.white,
+      borderRadius: 20,
+      gap: 20,
+    },
+    postingText: {
+      fontSize: 20,
+      fontFamily: Font.Poppins_Regular,
+      color: theme.black,
+      textAlign: 'center',
+    },
+    buttonsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '75%',
+      gap: 10,
+    },
+    scrollContainer: {
+      paddingBottom: 100,
     },
   })

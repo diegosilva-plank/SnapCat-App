@@ -1,4 +1,5 @@
 import { ApiRoutes } from 'api/routes'
+import { GetPostData } from './types'
 
 export const getPostsFromApi = async () => {
   try {
@@ -9,7 +10,7 @@ export const getPostsFromApi = async () => {
         'Content-Type': 'application/json',
       },
     })
-    const data = await response.json()
+    const data = (await response.json()) as GetPostData
     return data.posts
   } catch (error) {
     console.error('Error fetching posts', error)
@@ -19,14 +20,15 @@ export const getPostsFromApi = async () => {
 
 export const createPostInApi = async (post: FormData) => {
   try {
-    await fetch(ApiRoutes.createPost, {
+    const response = await fetch(ApiRoutes.createPost, {
       method: 'POST',
       headers: {
-        Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
       },
       body: post,
     })
+    const data = await response.json()
+    if (data.error) console.error(data.error)
   } catch (error) {
     console.error('Error creating post', error)
   }

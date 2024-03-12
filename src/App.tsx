@@ -15,7 +15,7 @@ import { NewPetScreen } from 'screens/NewPet'
 
 export type RootStackParamList = {
   Enter: undefined
-  Feed: undefined
+  Feed: { refresh?: boolean } | undefined
   NewPost: undefined
   NewPet: undefined
 }

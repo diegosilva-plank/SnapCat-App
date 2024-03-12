@@ -22,7 +22,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
       <Image source={theme.logos.enter as ImageSourcePropType} />
       <View style={style.button}>
         <Button
-          text={translation.enter}
+          text={translation.buttons.enter}
           backgroundColor={theme.white}
           color={theme.primary}
           isBold

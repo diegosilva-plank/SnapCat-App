@@ -7,11 +7,12 @@ import { imageSelectorStyles } from './styles'
 import { useTheme } from 'contexts/ThemeContext'
 import { useTranslation } from 'contexts/LanguageContext'
 import { Popup } from 'components/Popup'
+import { ImagePickerAsset } from 'expo-image-picker'
 
 export const useImageSelector = () => {
   const theme = useTheme()
   const { translation } = useTranslation()
-  const [image, setImage] = useState<string | null>(null)
+  const [image, setImage] = useState<ImagePickerAsset | null>(null)
   const [showImageSelector, setShowImageSelector] = useState<boolean>(false)
   const { image: cameraImage, takePhoto } = useCamera()
   const { image: galleryImage, pickImage } = useGallery()
