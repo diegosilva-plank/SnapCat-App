@@ -1,24 +1,39 @@
 import { registerRootComponent } from 'expo'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { LanguageContextProvider } from 'contexts/LanguageContext'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { EnterScreen } from 'screens/EnterScreen'
+import { ThemeContextProvider } from 'contexts/ThemeContext'
+import { useCustomFonts } from 'hooks/useCustomFonts'
+import { Feed } from 'screens/Feed'
+import { themes } from './themes'
 
-const App = () => {
-	return (
-		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your app!</Text>
-			<StatusBar style="auto" />
-		</View>
-	)
+export type RootStackParamList = {
+  Enter: undefined
+  Feed: undefined
 }
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: '#fff',
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-})
+const Stack = createNativeStackNavigator<RootStackParamList>()
+
+const App = () => {
+  const [fontsLoaded] = useCustomFonts()
+  if (!fontsLoaded) {
+    return null
+  }
+
+  return (
+    <LanguageContextProvider>
+      <ThemeContextProvider theme={themes.snapcat}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Enter">
+            <Stack.Screen name="Enter" component={EnterScreen} />
+            <Stack.Screen name="Feed" component={Feed} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ThemeContextProvider>
+    </LanguageContextProvider>
+  )
+}
 
 export default registerRootComponent(App)
