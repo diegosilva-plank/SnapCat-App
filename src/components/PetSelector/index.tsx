@@ -6,6 +6,7 @@ import React from 'react'
 import { useTheme } from 'contexts/ThemeContext'
 import { PetOptionProps, PetSelectorProps } from './types'
 import { petSelectorStyleHandler } from './styles'
+import { PetSelectorSkeleton } from './skeleton'
 
 export const PetSelector = ({ onSelectPet }: PetSelectorProps) => {
   const [pets, setPets] = useState<Pet[]>([])
@@ -29,7 +30,7 @@ export const PetSelector = ({ onSelectPet }: PetSelectorProps) => {
   return (
     <View style={styles.selectionBar}>
       {loading || !pets ? (
-        <Text style={{ marginLeft: 15 }}>Loading...</Text>
+        <PetSelectorSkeleton />
       ) : (
         <FlatList
           horizontal

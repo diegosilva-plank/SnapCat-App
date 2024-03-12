@@ -73,4 +73,11 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
     scrollContainer: {
       paddingBottom: 100,
     },
+    errorMessage: {
+      color: theme.error,
+      fontSize: 14,
+      fontFamily: Font.Poppins_Regular,
+      textAlign: 'center',
+      marginTop: 10,
+    },
   })

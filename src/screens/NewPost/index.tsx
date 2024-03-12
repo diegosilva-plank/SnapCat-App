@@ -141,7 +141,7 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
               />
             </View>
           </View>
-          <Text>{errorMessage}</Text>
+          <Text style={styles.errorMessage}>{errorMessage}</Text>
         </ScrollView>
       </KeyboardAvoidingView>
     </ScreenLayout>

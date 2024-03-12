@@ -7,6 +7,7 @@ export const snapcatTheme: Theme = {
   black: '#000000',
   white: '#FFFFFF',
   gray: '#F0F1DF',
+  error: '#F06A8A',
   skeleton: {
     primary: '#E0E0E0',
     secondary: '#D0D0D0',
