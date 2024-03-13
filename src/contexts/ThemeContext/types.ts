@@ -7,6 +7,7 @@ export type Theme = {
   black: string
   white: string
   gray: string
+  error: string
   skeleton: {
     primary: string
     secondary: string
@@ -19,6 +20,7 @@ export type Theme = {
     home: unknown
     addPost: unknown
     addPet: unknown
+    backArrow: unknown
   }
 }
 

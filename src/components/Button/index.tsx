@@ -20,9 +20,10 @@ const stylesHandler = (props: ButtonProps) =>
   StyleSheet.create({
     button: {
       backgroundColor: props.backgroundColor,
-      width: '100%',
-      height: 40,
-      borderRadius: 20,
+      width: props.width || '100%',
+      paddingHorizontal: 15,
+      height: props.height || 40,
+      borderRadius: props.height ? props.height / 2 : 20,
       justifyContent: 'center',
       alignItems: 'center',
       shadowColor: 'black',
@@ -35,7 +36,7 @@ const stylesHandler = (props: ButtonProps) =>
       lineHeight: 20,
       marginTop: 3,
       height: 'auto',
-      fontFamily: Font.Poppins_Medium,
+      fontFamily: props.font || Font.Poppins_Medium,
     },
     shadowProp: {
       shadowColor: 'black',

@@ -1,40 +1,14 @@
 import { Animated, Dimensions, StyleSheet, View } from 'react-native'
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import { postStylesHandler } from './styles'
-import { useTheme } from 'contexts/ThemeContext'
+import { SCREEN_PERCENTAGE } from './consts'
+import { useShimmer } from 'hooks/useShimmer'
 
 const windowWidth = Dimensions.get('window').width
-const SCREEN_PERCENTAGE = 0.9
 const postWidth = windowWidth * SCREEN_PERCENTAGE
 
 export const PostSkeleton = () => {
-  const theme = useTheme()
-  const shimmerAnimation = useRef(new Animated.Value(0)).current
-  useEffect(() => {
-    const shimmer = Animated.loop(
-      Animated.sequence([
-        Animated.timing(shimmerAnimation, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(shimmerAnimation, {
-          toValue: 0,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-      ]),
-    )
-    shimmer.start()
-    return () => shimmer.stop()
-  }, [])
-
-  const shimmerStyle = {
-    backgroundColor: shimmerAnimation.interpolate({
-      inputRange: [0, 1],
-      outputRange: [theme.skeleton.primary, theme.skeleton.secondary],
-    }),
-  }
+  const { shimmerStyle } = useShimmer()
 
   const styles = postStylesHandler(postWidth)
 

@@ -1,10 +1,26 @@
 import { Translation } from 'translations/types'
 
 export const pt: Translation = {
-  enter: 'entrar',
+  buttons: {
+    enter: 'entrar',
+    add: 'Adicionar',
+    cancel: 'Cancelar',
+  },
+  imageSelection: {
+    camera: 'Tirar uma foto',
+    gallery: 'Escolher da galeria',
+  },
+  newPostScreen: {
+    title: 'Nova publicação',
+    selectImage: 'Selecione uma imagem',
+    petSelector: 'Qual é o bichinho da foto?',
+    placeholder: 'Escreva sua legenda aqui',
+    errorMessage: 'Por favor, selecione uma imagem',
+    positng: 'Publicando sua postagem...\nPor favor, aguarde',
+  },
   timePast: {
     now: 'Agora mesmo',
-    minutes: (num: number) => `Há ${num} minut${num !== 1 ? 's' : ''}`,
+    minutes: (num: number) => `Há ${num} minuto${num !== 1 ? 's' : ''}`,
     hours: (num: number) => `Há ${num} hora${num !== 1 ? 's' : ''}`,
     days: (num: number) => `Há ${num} dia${num !== 1 ? 's' : ''}`,
     weeks: (num: number) => `Há ${num} semana${num !== 1 ? 's' : ''}`,

@@ -1,7 +1,23 @@
 import { Translation } from 'translations/types'
 
 export const en: Translation = {
-  enter: 'enter',
+  buttons: {
+    enter: 'enter',
+    add: 'Add',
+    cancel: 'Cancel',
+  },
+  imageSelection: {
+    camera: 'Take a photo',
+    gallery: 'Choose from gallery',
+  },
+  newPostScreen: {
+    title: 'New post',
+    selectImage: 'Select an image',
+    petSelector: 'What pet is in this picture?',
+    placeholder: 'Enter your caption',
+    errorMessage: 'Please select an image',
+    positng: 'Uploading your post...\nPlease wait',
+  },
   timePast: {
     now: 'Just now',
     minutes: (num: number) => `${num} minute${num !== 1 ? 's' : ''} ago`,

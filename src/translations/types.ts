@@ -1,5 +1,21 @@
 export type Translation = {
-  enter: string
+  buttons: {
+    enter: string
+    add: string
+    cancel: string
+  }
+  imageSelection: {
+    camera: string
+    gallery: string
+  }
+  newPostScreen: {
+    title: string
+    selectImage: string
+    petSelector: string
+    placeholder: string
+    errorMessage: string
+    positng: string
+  }
   timePast: {
     now: string
     minutes: (num: number) => string
