@@ -7,12 +7,16 @@
     "paths": {
       // This needs to be mirrored in babel.config.js
       // Components is a directory with sub directories
+      "api/*": ["src/api/*"],
       "components/*": ["src/components/*"],
       "contexts/*": ["src/contexts/*"],
       "hooks/*": ["src/hooks/*"],
+      "layouts/*": ["src/layouts/*"],
       "screens/*": ["src/screens/*"],
       "themes/*": ["src/themes/*"],
       "translations/*": ["src/translations/*"],
+      "types/*": ["src/types/*"],
+      "utils/*": ["src/utils/*"],
       "assets/*": ["assets/*"]
     }
   },

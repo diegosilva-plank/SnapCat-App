@@ -7,8 +7,19 @@ export type Theme = {
   black: string
   white: string
   gray: string
-  enterLogo: unknown
-  titleLogo: unknown
+  skeleton: {
+    primary: string
+    secondary: string
+  }
+  logos: {
+    enter: unknown
+    title: unknown
+  }
+  icons: {
+    home: unknown
+    addPost: unknown
+    addPet: unknown
+  }
 }
 
 export type ThemeContextProviderProps = PropsWithChildren<{

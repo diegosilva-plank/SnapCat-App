@@ -1,4 +1,10 @@
-import { Image, ImageSourcePropType, StyleSheet, View } from 'react-native'
+import {
+  Image,
+  ImageSourcePropType,
+  SafeAreaView,
+  StyleSheet,
+  View,
+} from 'react-native'
 import React from 'react'
 import { EnterScreenProps } from './types'
 import { useTheme } from 'contexts/ThemeContext'
@@ -12,8 +18,8 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
   const { translation } = useTranslation()
 
   return (
-    <View style={style.wrapper}>
-      <Image source={theme.enterLogo as ImageSourcePropType} />
+    <SafeAreaView style={style.wrapper}>
+      <Image source={theme.logos.enter as ImageSourcePropType} />
       <View style={style.button}>
         <Button
           text={translation.enter}
@@ -26,7 +32,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
           }}
         />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -41,6 +47,5 @@ const stylesHandler = (theme: Theme) =>
     },
     button: {
       width: 250,
-      marginBottom: 100,
     },
   })
