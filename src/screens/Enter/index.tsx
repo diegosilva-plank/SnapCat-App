@@ -19,12 +19,15 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
 
   return (
     <SafeAreaView style={style.wrapper}>
-      <Image source={theme.logos.enter as ImageSourcePropType} />
+      <Image
+        source={theme.logos.enter as ImageSourcePropType}
+        style={{ width: 350, height: 350 }}
+      />
       <View style={style.button}>
         <Button
           text={translation.buttons.enter}
-          backgroundColor={theme.white}
-          color={theme.primary}
+          backgroundColor={theme.colors.white}
+          color={theme.colors.primary}
           isBold
           hasShadow
           onClick={() => {
@@ -39,7 +42,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
 const stylesHandler = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.primary,
+      backgroundColor: theme.colors.primary,
       height: '100%',
       flexDirection: 'column',
       alignItems: 'center',

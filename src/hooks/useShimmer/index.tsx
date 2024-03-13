@@ -27,7 +27,10 @@ export const useShimmer = () => {
   const shimmerStyle = {
     backgroundColor: shimmerAnimation.interpolate({
       inputRange: [0, 1],
-      outputRange: [theme.skeleton.primary, theme.skeleton.secondary],
+      outputRange: [
+        theme.colors.skeleton.primary,
+        theme.colors.skeleton.secondary,
+      ],
     }),
   }
 

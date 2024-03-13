@@ -43,8 +43,8 @@ export const useImageSelector = (aspect: [number, number] = [16, 9]) => {
               await takePhoto()
               setShowImageSelector(false)
             }}
-            backgroundColor={theme.primary}
-            color={theme.white}
+            backgroundColor={theme.colors.primary}
+            color={theme.colors.white}
             hasShadow
           />
           <Button
@@ -53,8 +53,8 @@ export const useImageSelector = (aspect: [number, number] = [16, 9]) => {
               await pickImage()
               setShowImageSelector(false)
             }}
-            backgroundColor={theme.primary}
-            color={theme.white}
+            backgroundColor={theme.colors.primary}
+            color={theme.colors.white}
             hasShadow
           />
         </View>

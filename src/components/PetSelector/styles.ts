@@ -9,7 +9,7 @@ export const petSelectorStyleHandler = (theme: Theme) =>
       justifyContent: 'space-between',
       alignItems: 'center',
       width: '100%',
-      backgroundColor: theme.gray,
+      backgroundColor: theme.colors.gray,
       height: 50,
       borderRadius: 25,
       overflow: 'hidden',
@@ -39,15 +39,15 @@ export const petSelectorStyleHandler = (theme: Theme) =>
       marginHorizontal: 7,
     },
     white: {
-      color: theme.white,
+      color: theme.colors.white,
     },
     black: {
-      color: theme.black,
+      color: theme.colors.text,
     },
     bgPrimary: {
-      backgroundColor: theme.primary,
+      backgroundColor: theme.colors.primary,
     },
     bgGray: {
-      backgroundColor: theme.gray,
+      backgroundColor: theme.colors.gray,
     },
   })

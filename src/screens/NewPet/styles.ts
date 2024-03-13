@@ -21,12 +21,13 @@ export const newPetStylesHandler = (theme: Theme) =>
       width: '100%',
       textAlign: 'center',
       fontFamily: Font.Poppins_SemiBold,
+      color: theme.colors.text,
     },
     scrollContainer: {
       paddingBottom: 100,
     },
     errorMessage: {
-      color: theme.error,
+      color: theme.colors.error,
       fontSize: 14,
       fontFamily: Font.Poppins_Regular,
       textAlign: 'center',
@@ -37,7 +38,7 @@ export const newPetStylesHandler = (theme: Theme) =>
       width: 250,
       height: 250,
       borderRadius: 125,
-      backgroundColor: theme.gray,
+      backgroundColor: theme.colors.background,
       justifyContent: 'center',
       alignItems: 'center',
     },
@@ -45,6 +46,7 @@ export const newPetStylesHandler = (theme: Theme) =>
       fontSize: 14,
       fontFamily: Font.Poppins_Regular,
       textAlign: 'center',
+      color: theme.colors.text,
     },
     addProfilePicContainer: {
       flexDirection: 'column',
@@ -55,7 +57,7 @@ export const newPetStylesHandler = (theme: Theme) =>
       width: '80%',
       height: 40,
       borderRadius: 20,
-      backgroundColor: theme.gray,
+      backgroundColor: theme.colors.gray,
       padding: 10,
     },
     inputsContainer: {
@@ -76,14 +78,14 @@ export const newPetStylesHandler = (theme: Theme) =>
       position: 'absolute',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: theme.white,
+      backgroundColor: theme.colors.white,
       borderRadius: 20,
       gap: 20,
     },
     postingText: {
       fontSize: 20,
       fontFamily: Font.Poppins_Regular,
-      color: theme.black,
+      color: theme.colors.black,
       textAlign: 'center',
     },
   })

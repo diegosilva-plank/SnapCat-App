@@ -1,16 +1,21 @@
 import { PropsWithChildren } from 'react'
 
 export type Theme = {
-  primary: string
-  secondary: string
-  terciary: string
-  black: string
-  white: string
-  gray: string
-  error: string
-  skeleton: {
+  colors: {
     primary: string
     secondary: string
+    terciary: string
+    black: string
+    white: string
+    gray: string
+    error: string
+    skeleton: {
+      primary: string
+      secondary: string
+    }
+    background: string
+    text: string
+    titlebar: string
   }
   logos: {
     enter: unknown

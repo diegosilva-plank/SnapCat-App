@@ -9,7 +9,7 @@ import { useCustomFonts } from 'hooks/useCustomFonts'
 import { Feed } from 'screens/Feed'
 import { themes } from './themes'
 import { Theme } from 'contexts/ThemeContext/types'
-import { SafeAreaView, StyleSheet } from 'react-native'
+import { Appearance, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
 import { NewPostScreen } from 'screens/NewPost'
 import { NewPetScreen } from 'screens/NewPet'
 
@@ -27,12 +27,18 @@ const App = () => {
   if (!fontsLoaded) {
     return null
   }
-  const styles = stylesHandler(themes.snapcat)
+  const colorScheme = Appearance.getColorScheme()
+  const theme = colorScheme === 'dark' ? themes.snapcatDark : themes.snapcat
+  const styles = stylesHandler(theme)
 
   return (
     <LanguageContextProvider>
-      <ThemeContextProvider theme={themes.snapcat}>
+      <ThemeContextProvider theme={theme}>
         <SafeAreaView style={styles.wrapper}>
+          <StatusBar
+            backgroundColor={theme.colors.primary}
+            barStyle="light-content"
+          />
           <NavigationContainer>
             <Stack.Navigator
               initialRouteName="Enter"
@@ -56,7 +62,7 @@ const App = () => {
 const stylesHandler = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.primary,
+      backgroundColor: theme.colors.primary,
       height: '100%',
     },
   })

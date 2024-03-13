@@ -3,6 +3,7 @@ import React from 'react'
 import { postStylesHandler } from './styles'
 import { SCREEN_PERCENTAGE } from './consts'
 import { useShimmer } from 'hooks/useShimmer'
+import { useTheme } from 'contexts/ThemeContext'
 
 const windowWidth = Dimensions.get('window').width
 const postWidth = windowWidth * SCREEN_PERCENTAGE
@@ -10,7 +11,8 @@ const postWidth = windowWidth * SCREEN_PERCENTAGE
 export const PostSkeleton = () => {
   const { shimmerStyle } = useShimmer()
 
-  const styles = postStylesHandler(postWidth)
+  const theme = useTheme()
+  const styles = postStylesHandler(postWidth, theme)
 
   return (
     <View style={styles.container}>

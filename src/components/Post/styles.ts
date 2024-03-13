@@ -1,7 +1,8 @@
+import { Theme } from 'contexts/ThemeContext/types'
 import { Font } from 'hooks/useCustomFonts/types'
 import { StyleSheet } from 'react-native'
 
-export const postStylesHandler = (postWidth: number) =>
+export const postStylesHandler = (postWidth: number, theme: Theme) =>
   StyleSheet.create({
     container: {
       flexDirection: 'column',
@@ -22,6 +23,7 @@ export const postStylesHandler = (postWidth: number) =>
       fontSize: 16,
       lineHeight: 20,
       fontFamily: Font.Poppins_Regular,
+      color: theme.colors.text,
     },
     headerContainer: {
       flexDirection: 'row',
@@ -43,10 +45,12 @@ export const postStylesHandler = (postWidth: number) =>
       fontSize: 16,
       lineHeight: 20,
       fontFamily: Font.Poppins_Medium,
+      color: theme.colors.text,
     },
     timeText: {
       fontSize: 12,
       lineHeight: 20,
       fontFamily: Font.Poppins_Regular,
+      color: theme.colors.text,
     },
   })

@@ -64,7 +64,7 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           disableClose
         >
           <View style={styles.modal}>
-            <ActivityIndicator size="large" color={theme.primary} />
+            <ActivityIndicator size="large" color={theme.colors.primary} />
             <Text style={styles.postingText}>
               {translation.newPostScreen.positng}
             </Text>
@@ -94,8 +94,8 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
                   onClick={() => {
                     setShowImageSelector(true)
                   }}
-                  backgroundColor={theme.primary}
-                  color={theme.white}
+                  backgroundColor={theme.colors.primary}
+                  color={theme.colors.white}
                 />
               </View>
             )}
@@ -115,10 +115,11 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
                 onChangeText={(text) => setText(text)}
                 value={text}
                 placeholder={translation.newPostScreen.placeholder}
-                placeholderTextColor={theme.terciary}
+                placeholderTextColor={theme.colors.terciary}
                 style={{
                   fontSize: 16,
                   padding: 10,
+                  color: theme.colors.text,
                 }}
               />
             </View>
@@ -126,8 +127,8 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
               <Button
                 text={translation.buttons.cancel}
                 onClick={navigation.goBack}
-                backgroundColor={theme.white}
-                color={theme.primary}
+                backgroundColor={theme.colors.white}
+                color={theme.colors.primary}
                 font={Font.Poppins_Bold}
                 height={45}
                 width={120}
@@ -135,8 +136,8 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
               <Button
                 text={translation.buttons.add}
                 onClick={createPost}
-                backgroundColor={theme.primary}
-                color={theme.white}
+                backgroundColor={theme.colors.primary}
+                color={theme.colors.white}
                 font={Font.Poppins_Bold}
                 height={45}
                 width={120}

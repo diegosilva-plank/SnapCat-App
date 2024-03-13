@@ -5,12 +5,14 @@ import { calculateTimePast } from 'utils/calculateTimePast'
 import { postStylesHandler } from './styles'
 import { useTranslation } from 'contexts/LanguageContext'
 import { SCREEN_PERCENTAGE } from './consts'
+import { useTheme } from 'contexts/ThemeContext'
 
 const windowWidth = Dimensions.get('window').width
 const postWidth = windowWidth * SCREEN_PERCENTAGE
 
 export const Post = ({ post }: PostProps) => {
-  const styles = postStylesHandler(postWidth)
+  const theme = useTheme()
+  const styles = postStylesHandler(postWidth, theme)
   const { translation } = useTranslation()
 
   return (
