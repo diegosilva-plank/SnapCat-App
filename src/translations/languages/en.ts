@@ -23,6 +23,9 @@ export const en: Translation = {
   newPetScreen: {
     title: 'New cat',
     addProfilePicture: 'Add profile picture',
+    errorMessage: 'Please select an image and fill in all fields',
+    nicknameInUse: 'Username already in use',
+    positng: 'Creating your cat...\nPlease wait',
   },
   timePast: {
     now: 'Just now',

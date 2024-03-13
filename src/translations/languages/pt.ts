@@ -23,6 +23,9 @@ export const pt: Translation = {
   newPetScreen: {
     title: 'Novo gatinho',
     addProfilePicture: 'Adicionar foto de perfil',
+    errorMessage: 'Por favor, selecione uma imagem e preencha todos os campos',
+    nicknameInUse: 'Nome de usuário já em uso',
+    positng: 'Criando seu gatinho...\nPor favor, aguarde',
   },
   timePast: {
     now: 'Agora mesmo',

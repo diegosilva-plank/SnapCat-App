@@ -17,7 +17,16 @@ export const PetSelector = ({ onSelectPet }: PetSelectorProps) => {
 
   const getPets = async () => {
     const fetchedPets = await getPetsFromApi()
-    setPets(fetchedPets)
+    const sortedPets = fetchedPets.sort((a, b) => {
+      if (a.nickname.toLowerCase() < b.nickname.toLowerCase()) {
+        return -1
+      }
+      if (a.nickname.toLowerCase() > b.nickname.toLowerCase()) {
+        return 1
+      }
+      return 0
+    })
+    setPets(sortedPets)
     setSelectedPet(fetchedPets[0].nickname)
     onSelectPet(fetchedPets[0].nickname)
     setLoading(false)

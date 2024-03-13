@@ -49,6 +49,7 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
       post.append('textContent', text)
       setPosting(true)
       await createPostInApi(post)
+      setPosting(false)
       navigation.navigate('Feed', { refresh: true })
     } else {
       setErrorMessage(translation.newPostScreen.errorMessage)

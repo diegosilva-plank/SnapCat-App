@@ -21,6 +21,9 @@ export type Translation = {
   newPetScreen: {
     title: string
     addProfilePicture: string
+    errorMessage: string
+    nicknameInUse: string
+    positng: string
   }
   timePast: {
     now: string

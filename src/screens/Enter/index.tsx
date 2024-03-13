@@ -28,7 +28,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
           isBold
           hasShadow
           onClick={() => {
-            navigation.navigate('Feed')
+            navigation.navigate('Feed', { refresh: true })
           }}
         />
       </View>

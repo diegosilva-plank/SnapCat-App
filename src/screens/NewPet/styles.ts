@@ -30,7 +30,8 @@ export const newPetStylesHandler = (theme: Theme) =>
       fontSize: 14,
       fontFamily: Font.Poppins_Regular,
       textAlign: 'center',
-      marginTop: 10,
+      marginTop: -10,
+      width: '80%',
     },
     image: {
       width: 250,
@@ -62,5 +63,27 @@ export const newPetStylesHandler = (theme: Theme) =>
       flexDirection: 'column',
       alignItems: 'center',
       gap: 15,
+    },
+    buttonsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '75%',
+      gap: 10,
+    },
+    modal: {
+      width: '90%',
+      height: 200,
+      position: 'absolute',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: theme.white,
+      borderRadius: 20,
+      gap: 20,
+    },
+    postingText: {
+      fontSize: 20,
+      fontFamily: Font.Poppins_Regular,
+      color: theme.black,
+      textAlign: 'center',
     },
   })
