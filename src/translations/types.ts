@@ -16,6 +16,10 @@ export type Translation = {
     errorMessage: string
     positng: string
   }
+  newPetScreen: {
+    title: string
+    addProfilePicture: string
+  }
   timePast: {
     now: string
     minutes: (num: number) => string

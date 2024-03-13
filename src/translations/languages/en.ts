@@ -18,6 +18,10 @@ export const en: Translation = {
     errorMessage: 'Please select an image',
     positng: 'Uploading your post...\nPlease wait',
   },
+  newPetScreen: {
+    title: 'New cat',
+    addProfilePicture: 'Add profile picture',
+  },
   timePast: {
     now: 'Just now',
     minutes: (num: number) => `${num} minute${num !== 1 ? 's' : ''} ago`,

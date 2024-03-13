@@ -18,6 +18,10 @@ export const pt: Translation = {
     errorMessage: 'Por favor, selecione uma imagem',
     positng: 'Publicando sua postagem...\nPor favor, aguarde',
   },
+  newPetScreen: {
+    title: 'Novo gatinho',
+    addProfilePicture: 'Adicionar foto de perfil',
+  },
   timePast: {
     now: 'Agora mesmo',
     minutes: (num: number) => `Há ${num} minuto${num !== 1 ? 's' : ''}`,

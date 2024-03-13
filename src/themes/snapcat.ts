@@ -21,5 +21,6 @@ export const snapcatTheme: Theme = {
     addPost: require('../../assets/SnapCat/icons/add.png'),
     addPet: require('../../assets/SnapCat/icons/addcat.png'),
     backArrow: require('../../assets/SnapCat/icons/back-arrow.png'),
+    uploadCat: require('../../assets/SnapCat/icons/uploadcat.png'),
   },
 }

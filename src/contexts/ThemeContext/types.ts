@@ -21,6 +21,7 @@ export type Theme = {
     addPost: unknown
     addPet: unknown
     backArrow: unknown
+    uploadCat: unknown
   }
 }
 
