@@ -50,4 +50,17 @@ export const newPetStylesHandler = (theme: Theme) =>
       alignItems: 'center',
       gap: 10,
     },
+    textInputContainer: {
+      width: '80%',
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: theme.gray,
+      padding: 10,
+    },
+    inputsContainer: {
+      width: '100%',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 15,
+    },
   })

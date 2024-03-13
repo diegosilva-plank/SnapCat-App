@@ -17,6 +17,8 @@ export const en: Translation = {
     placeholder: 'Enter your caption',
     errorMessage: 'Please select an image',
     positng: 'Uploading your post...\nPlease wait',
+    nameInput: 'Cat name',
+    nicknameInput: 'Username',
   },
   newPetScreen: {
     title: 'New cat',

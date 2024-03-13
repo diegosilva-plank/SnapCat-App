@@ -5,9 +5,10 @@ import {
   Pressable,
   ScrollView,
   Text,
+  TextInput,
   View,
 } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { NewPetScreenProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
 import { useTranslation } from 'contexts/LanguageContext'
@@ -20,6 +21,8 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
   const { translation } = useTranslation()
   const theme = useTheme()
   const { image, ImageSelector, setShowImageSelector } = useImageSelector()
+  const [name, setName] = useState<string>('')
+  const [nickname, setNickname] = useState<string>('')
   const styles = newPetStylesHandler(theme)
 
   return (
@@ -53,6 +56,36 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
                 {translation.newPetScreen.addProfilePicture}
               </Text>
             </Pressable>
+            <View style={styles.inputsContainer}>
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  editable
+                  maxLength={50}
+                  onChangeText={(text) => setName(text)}
+                  value={name}
+                  placeholder={translation.newPostScreen.nameInput}
+                  placeholderTextColor={theme.terciary}
+                  style={{
+                    fontSize: 16,
+                    paddingHorizontal: 10,
+                  }}
+                />
+              </View>
+              <View style={styles.textInputContainer}>
+                <TextInput
+                  editable
+                  maxLength={50}
+                  onChangeText={(text) => setNickname(text)}
+                  value={nickname}
+                  placeholder={translation.newPostScreen.nicknameInput}
+                  placeholderTextColor={theme.terciary}
+                  style={{
+                    fontSize: 16,
+                    paddingHorizontal: 10,
+                  }}
+                />
+              </View>
+            </View>
           </View>
           {/* <Text style={styles.errorMessage}>{errorMessage}</Text> */}
         </ScrollView>

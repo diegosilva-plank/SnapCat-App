@@ -15,6 +15,8 @@ export type Translation = {
     placeholder: string
     errorMessage: string
     positng: string
+    nameInput: string
+    nicknameInput: string
   }
   newPetScreen: {
     title: string
