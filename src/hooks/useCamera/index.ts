@@ -22,7 +22,7 @@ export const useCamera = () => {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: Platform.OS !== 'ios',
       aspect: [16, 9],
-      quality: 1,
+      quality: 0,
     })
 
     if (!result.canceled) {

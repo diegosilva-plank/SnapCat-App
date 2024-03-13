@@ -1,22 +1,22 @@
 import { Translation } from 'translations/types'
+import { DateTime } from 'luxon'
 
 export const calculateTimePast = (
   created: string,
   translation: Translation,
 ) => {
-  const createdDate = new Date(created)
-  const currentDate = new Date()
+  const createdDate = DateTime.fromISO(created)
+  const currentDate = DateTime.now()
 
   // Calculate the time difference in milliseconds
-  const timeDifference = currentDate.getTime() - createdDate.getTime()
+  const timeDifference = currentDate.diff(createdDate)
 
   // Convert milliseconds to seconds, minutes, hours, days, months, or years
-  const seconds = Math.floor(timeDifference / 1000)
-  const minutes = Math.floor(seconds / 60)
-  const hours = Math.floor(minutes / 60)
-  const days = Math.floor(hours / 24)
-  const months = Math.floor(days / 30) // Approximate
-  const years = Math.floor(months / 12) // Approximate
+  const minutes = Math.floor(timeDifference.as('minutes'))
+  const hours = Math.floor(timeDifference.as('hours'))
+  const days = Math.floor(timeDifference.as('days'))
+  const months = Math.floor(timeDifference.as('months'))
+  const years = Math.floor(timeDifference.as('years'))
 
   // Determine the appropriate unit and value to display
   if (years > 0) {

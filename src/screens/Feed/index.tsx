@@ -1,4 +1,10 @@
-import { FlatList, RefreshControl, StyleSheet, View } from 'react-native'
+import {
+  FlatList,
+  Platform,
+  RefreshControl,
+  StyleSheet,
+  View,
+} from 'react-native'
 import React, { useEffect } from 'react'
 import { FeedProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
@@ -26,6 +32,10 @@ export const Feed = ({ navigation, route }: FeedProps) => {
 
   const onRefresh = async () => {
     setRefreshing(true)
+    if (Platform.OS === 'android') {
+      await getPosts()
+      setRefreshing(false)
+    }
   }
 
   const onScrollEndDrag = async () => {
@@ -36,7 +46,10 @@ export const Feed = ({ navigation, route }: FeedProps) => {
   }
 
   useEffect(() => {
-    getPosts()
+    if (route.params?.refresh) {
+      getPosts()
+      navigation.navigate('Feed', { refresh: false })
+    }
   }, [route.params?.refresh])
 
   return (

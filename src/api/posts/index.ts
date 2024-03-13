@@ -23,12 +23,12 @@ export const createPostInApi = async (post: FormData) => {
     const response = await fetch(ApiRoutes.createPost, {
       method: 'POST',
       headers: {
+        Accept: 'multipart/form-data',
         'Content-Type': 'multipart/form-data',
       },
       body: post,
     })
-    const data = await response.json()
-    if (data.error) console.error(data.error)
+    if (response.status !== 200) throw new Error('Request failed')
   } catch (error) {
     console.error('Error creating post', error)
   }

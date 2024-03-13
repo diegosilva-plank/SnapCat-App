@@ -39,10 +39,11 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
   const createPost = async () => {
     if (image) {
       const post = new FormData()
+      const extension = image.uri.split('.').slice(-1)
       post.append('media', {
         uri: image.uri,
-        name: image.fileName ?? 'image.jpg',
-        type: image.type ?? 'image/jpeg',
+        name: image.fileName ?? `image.${extension ?? 'jpg'}`,
+        type: `image/${extension ?? 'jpg'}`,
       } as unknown as Blob)
       post.append('petPublicId', selectedPet)
       post.append('textContent', text)
