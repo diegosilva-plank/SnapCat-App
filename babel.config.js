@@ -20,6 +20,7 @@ module.exports = function (api) {
             translations: './src/translations',
             types: './src/types',
             utils: './src/utils',
+            config: './src/config.ts',
             assets: './assets',
           },
         },

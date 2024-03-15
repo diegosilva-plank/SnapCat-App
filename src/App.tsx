@@ -1,17 +1,19 @@
 import { registerRootComponent } from 'expo'
 import React from 'react'
-import { LanguageContextProvider } from 'contexts/LanguageContext'
+import { LanguageContextProvider } from './contexts/LanguageContext'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { EnterScreen } from 'screens/Enter'
-import { ThemeContextProvider } from 'contexts/ThemeContext'
-import { useCustomFonts } from 'hooks/useCustomFonts'
-import { Feed } from 'screens/Feed'
+import { EnterScreen } from './screens/Enter'
+import { ThemeContextProvider } from './contexts/ThemeContext'
+import { useCustomFonts } from './hooks/useCustomFonts'
+import { Feed } from './screens/Feed'
 import { themes } from './themes'
-import { Theme } from 'contexts/ThemeContext/types'
+import { Theme } from './contexts/ThemeContext/types'
 import { Appearance, SafeAreaView, StatusBar, StyleSheet } from 'react-native'
-import { NewPostScreen } from 'screens/NewPost'
-import { NewPetScreen } from 'screens/NewPet'
+import { NewPostScreen } from './screens/NewPost'
+import registerNNPushToken from 'native-notify'
+import { NewPetScreen } from './screens/NewPet'
+import { config } from 'config'
 
 export type RootStackParamList = {
   Enter: undefined
@@ -23,6 +25,7 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const App = () => {
+  registerNNPushToken(config.nativeNotifyAppId, config.nativeNotifyAppToken)
   const [fontsLoaded] = useCustomFonts()
   if (!fontsLoaded) {
     return null

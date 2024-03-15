@@ -1,8 +1,9 @@
-const SERVER_URL = process.env.API_URL
+import { config } from 'config'
 
 export const ApiRoutes = {
-  getPosts: `${SERVER_URL}/post/get`,
-  getPets: `${SERVER_URL}/pet/get`,
-  createPost: `${SERVER_URL}/post/create`,
-  createPet: `${SERVER_URL}/pet/create`,
+  getPosts: `${config.apiUrl}/post/get`,
+  getPets: `${config.apiUrl}/pet/get`,
+  createPost: `${config.apiUrl}/post/create`,
+  createPet: `${config.apiUrl}/pet/create`,
+  nativeNotify: `${config.nativeNotifyApiUrl}`,
 }

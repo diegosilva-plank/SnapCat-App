@@ -11,8 +11,6 @@ import {
 } from 'react-native'
 import React, { useState } from 'react'
 import { NewPetScreenProps } from './types'
-import { ScreenLayout } from 'layouts/ScreenLayout'
-import { useTranslation } from 'contexts/LanguageContext'
 import { useTheme } from 'contexts/ThemeContext'
 import { useImageSelector } from 'hooks/useImageSelector'
 import { newPetStylesHandler } from './styles'
@@ -21,6 +19,8 @@ import { createPetInApi } from 'api/pets'
 import { Font } from 'hooks/useCustomFonts/types'
 import { Button } from 'components/Button'
 import { Popup } from 'components/Popup'
+import { ScreenLayout } from 'src/layouts/ScreenLayout'
+import { useTranslation } from 'src/contexts/LanguageContext'
 
 export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
   const { translation } = useTranslation()

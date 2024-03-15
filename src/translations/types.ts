@@ -34,6 +34,12 @@ export type Translation = {
     months: (num: number) => string
     years: (num: number) => string
   }
+  notifications: {
+    newPost: {
+      title: string
+      body: (petNickname: string) => string
+    }
+  }
 }
 
 export enum Language {
