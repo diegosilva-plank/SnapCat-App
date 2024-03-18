@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { ButtonProps } from './types'
 import { Font } from 'hooks/useCustomFonts/types'
@@ -8,11 +8,11 @@ export const Button = (props: ButtonProps) => {
   const elevation = props.hasShadow ? styles.shadowProp : {}
 
   return (
-    <Pressable onPress={props.onClick}>
+    <TouchableOpacity onPress={props.onClick} activeOpacity={0.8}>
       <View style={[styles.button, elevation]}>
         <Text style={styles.text}>{props.text}</Text>
       </View>
-    </Pressable>
+    </TouchableOpacity>
   )
 }
 

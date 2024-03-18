@@ -1,6 +1,6 @@
 import { getPetsFromApi } from 'api/pets'
 import { useEffect, useState } from 'react'
-import { FlatList, Image, Pressable, Text, View } from 'react-native'
+import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { Pet } from 'types/Pet'
 import React from 'react'
 import { useTheme } from 'contexts/ThemeContext'
@@ -67,7 +67,7 @@ const PetOption = ({ pet, onClick, selected }: PetOptionProps) => {
   const styles = petSelectorStyleHandler(theme)
 
   return (
-    <Pressable onPress={onClick}>
+    <TouchableOpacity onPress={onClick} activeOpacity={0.5}>
       <View
         style={[
           styles.petContainer,
@@ -82,6 +82,6 @@ const PetOption = ({ pet, onClick, selected }: PetOptionProps) => {
           @{pet.nickname}
         </Text>
       </View>
-    </Pressable>
+    </TouchableOpacity>
   )
 }

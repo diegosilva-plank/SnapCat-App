@@ -3,10 +3,10 @@ import {
   Dimensions,
   Image,
   KeyboardAvoidingView,
-  Pressable,
   ScrollView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native'
 import React, { useState } from 'react'
@@ -87,13 +87,16 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           <View style={styles.container}>
             <ImageSelector />
             {image ? (
-              <Pressable onPress={() => setShowImageSelector(true)}>
+              <TouchableOpacity
+                onPress={() => setShowImageSelector(true)}
+                activeOpacity={0.7}
+              >
                 <Image
                   source={{ uri: image.uri }}
                   style={styles.image}
                   resizeMode="cover"
                 />
-              </Pressable>
+              </TouchableOpacity>
             ) : (
               <View style={styles.image}>
                 <Button

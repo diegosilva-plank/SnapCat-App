@@ -3,10 +3,10 @@ import {
   Image,
   ImageSourcePropType,
   KeyboardAvoidingView,
-  Pressable,
   ScrollView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native'
 import React, { useState } from 'react'
@@ -87,9 +87,10 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
           </View>
           <View style={styles.container}>
             <ImageSelector />
-            <Pressable
+            <TouchableOpacity
               style={styles.addProfilePicContainer}
               onPress={() => setShowImageSelector(true)}
+              activeOpacity={0.7}
             >
               {image ? (
                 <Image
@@ -107,7 +108,7 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
               <Text style={styles.text}>
                 {translation.newPetScreen.addProfilePicture}
               </Text>
-            </Pressable>
+            </TouchableOpacity>
             <View style={styles.inputsContainer}>
               <View style={styles.textInputContainer}>
                 <TextInput
