@@ -34,7 +34,8 @@
       "permissions": [
         "android.permission.RECORD_AUDIO"
       ],
-      "package": "com.diegojoinplank.SnapCat"
+      "package": "com.diegojoinplank.SnapCat",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"

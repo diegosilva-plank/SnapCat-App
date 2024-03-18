@@ -82,8 +82,7 @@ export const Feed = ({ navigation, route }: FeedProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'column',
-    alignItems: 'center',
+    width: '100%',
   },
   contentContainer: {
     flexDirection: 'column',

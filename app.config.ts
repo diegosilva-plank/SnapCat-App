@@ -19,6 +19,7 @@ export default {
     },
     permissions: ['android.permission.RECORD_AUDIO'],
     package: 'com.diegojoinplank.SnapCat',
+    googleServicesFile: './google-services.json',
   },
   plugins: [
     [
