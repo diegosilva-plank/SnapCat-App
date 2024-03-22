@@ -1,4 +1,5 @@
 import { ApiRoutes } from 'api/routes'
+import { GetPetsData } from './types'
 
 export const getPetsFromApi = async () => {
   try {
@@ -9,10 +10,23 @@ export const getPetsFromApi = async () => {
         'Content-Type': 'application/json',
       },
     })
-    const data = await response.json()
+    const data = (await response.json()) as GetPetsData
     return data.pets
   } catch (error) {
     console.error('Error fetching pets', error)
     return []
   }
+}
+
+export const createPetInApi = async (pet: FormData) => {
+  const response = await fetch(ApiRoutes.createPet, {
+    method: 'POST',
+    headers: {
+      Accept: 'multipart/form-data',
+      'Content-Type': 'multipart/form-data',
+    },
+    body: pet,
+  })
+  const data = await response.json()
+  if (data.error) throw new Error(data.error)
 }

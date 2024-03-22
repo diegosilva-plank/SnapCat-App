@@ -1,25 +1,25 @@
 import { Theme } from 'contexts/ThemeContext/types'
 
-export const snapcatTheme: Theme = {
+export const snapcatThemeDark: Theme = {
   colors: {
     primary: '#8A29E8',
     secondary: '#FAE360',
-    terciary: '#8FBDDF',
+    terciary: '#FAE360',
     black: '#000000',
     white: '#FFFFFF',
-    gray: '#F0F1DF',
+    gray: '#40413F',
     error: '#F06A8A',
     skeleton: {
-      primary: '#E0E0E0',
-      secondary: '#D0D0D0',
+      primary: '#606060',
+      secondary: '#505050',
     },
-    background: '#FFFFFF',
-    text: '#000000',
-    titlebar: '#FFFFFF',
+    background: '#2F2F2F',
+    text: '#FFFFFF',
+    titlebar: '#8A29E8',
   },
   logos: {
     enter: require('../../assets/SnapCat/logos/enter.png'),
-    title: require('../../assets/SnapCat/logos/title.png'),
+    title: require('../../assets/SnapCat/logos/title-white.png'),
   },
   icons: {
     home: require('../../assets/SnapCat/icons/home.png'),

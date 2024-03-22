@@ -17,6 +17,15 @@ export const pt: Translation = {
     placeholder: 'Escreva sua legenda aqui',
     errorMessage: 'Por favor, selecione uma imagem',
     positng: 'Publicando sua postagem...\nPor favor, aguarde',
+    nameInput: 'Nome',
+    nicknameInput: 'Nome de usuário',
+  },
+  newPetScreen: {
+    title: 'Novo gatinho',
+    addProfilePicture: 'Adicionar foto de perfil',
+    errorMessage: 'Por favor, selecione uma imagem e preencha todos os campos',
+    nicknameInUse: 'Nome de usuário já em uso',
+    positng: 'Criando seu gatinho...\nPor favor, aguarde',
   },
   timePast: {
     now: 'Agora mesmo',

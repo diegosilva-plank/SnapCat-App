@@ -42,7 +42,7 @@ export const NavBar = ({ navigation }: NavBarProps) => {
 const stylesHandler = (theme: Theme) =>
   StyleSheet.create({
     wrapper: {
-      backgroundColor: theme.primary,
+      backgroundColor: theme.colors.primary,
       height: NAVBAR_HEIGHT,
       flexDirection: 'row',
       alignItems: 'center',

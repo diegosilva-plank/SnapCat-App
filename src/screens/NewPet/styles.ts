@@ -2,7 +2,7 @@ import { Theme } from 'contexts/ThemeContext/types'
 import { Font } from 'hooks/useCustomFonts/types'
 import { StyleSheet } from 'react-native'
 
-export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
+export const newPetStylesHandler = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flexDirection: 'column',
@@ -23,31 +23,54 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
       fontFamily: Font.Poppins_SemiBold,
       color: theme.colors.text,
     },
+    scrollContainer: {
+      paddingBottom: 100,
+    },
+    errorMessage: {
+      color: theme.colors.error,
+      fontSize: 14,
+      fontFamily: Font.Poppins_Regular,
+      textAlign: 'center',
+      marginTop: -10,
+      width: '80%',
+    },
     image: {
-      width: imageWidth,
-      height: (imageWidth * 9) / 16,
-      borderRadius: 20,
-      backgroundColor: theme.colors.gray,
+      width: 250,
+      height: 250,
+      borderRadius: 125,
+      backgroundColor: theme.colors.background,
       justifyContent: 'center',
       alignItems: 'center',
     },
-    petSelectorContainer: {
-      flexDirection: 'column',
-      width: '85%',
-      gap: 10,
-    },
     text: {
-      fontSize: 16,
-      lineHeight: 20,
+      fontSize: 14,
       fontFamily: Font.Poppins_Regular,
+      textAlign: 'center',
       color: theme.colors.text,
     },
+    addProfilePicContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 10,
+    },
     textInputContainer: {
-      width: '85%',
-      height: 100,
+      width: '80%',
+      height: 40,
       borderRadius: 20,
       backgroundColor: theme.colors.gray,
       padding: 10,
+    },
+    inputsContainer: {
+      width: '100%',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 15,
+    },
+    buttonsContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '75%',
+      gap: 10,
     },
     modal: {
       width: '90%',
@@ -64,21 +87,5 @@ export const newPostStylesHandler = (imageWidth: number, theme: Theme) =>
       fontFamily: Font.Poppins_Regular,
       color: theme.colors.black,
       textAlign: 'center',
-    },
-    buttonsContainer: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      width: '75%',
-      gap: 10,
-    },
-    scrollContainer: {
-      paddingBottom: 100,
-    },
-    errorMessage: {
-      color: theme.colors.error,
-      fontSize: 14,
-      fontFamily: Font.Poppins_Regular,
-      textAlign: 'center',
-      marginTop: 10,
     },
   })

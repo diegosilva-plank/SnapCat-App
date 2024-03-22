@@ -9,13 +9,13 @@ import { useTranslation } from 'contexts/LanguageContext'
 import { Popup } from 'components/Popup'
 import { ImagePickerAsset } from 'expo-image-picker'
 
-export const useImageSelector = () => {
+export const useImageSelector = (aspect: [number, number] = [16, 9]) => {
   const theme = useTheme()
   const { translation } = useTranslation()
   const [image, setImage] = useState<ImagePickerAsset | null>(null)
   const [showImageSelector, setShowImageSelector] = useState<boolean>(false)
-  const { image: cameraImage, takePhoto } = useCamera()
-  const { image: galleryImage, pickImage } = useGallery()
+  const { image: cameraImage, takePhoto } = useCamera(aspect)
+  const { image: galleryImage, pickImage } = useGallery(aspect)
 
   useEffect(() => {
     if (cameraImage) {
@@ -43,8 +43,8 @@ export const useImageSelector = () => {
               await takePhoto()
               setShowImageSelector(false)
             }}
-            backgroundColor={theme.primary}
-            color={theme.white}
+            backgroundColor={theme.colors.primary}
+            color={theme.colors.white}
             hasShadow
           />
           <Button
@@ -53,8 +53,8 @@ export const useImageSelector = () => {
               await pickImage()
               setShowImageSelector(false)
             }}
-            backgroundColor={theme.primary}
-            color={theme.white}
+            backgroundColor={theme.colors.primary}
+            color={theme.colors.white}
             hasShadow
           />
         </View>
