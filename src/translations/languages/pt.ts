@@ -36,4 +36,11 @@ export const pt: Translation = {
     months: (num: number) => `Há ${num} mese${num !== 1 ? 's' : ''}`,
     years: (num: number) => `Há ${num} ano${num !== 1 ? 's' : ''}`,
   },
+  notifications: {
+    newPost: {
+      title: 'Nova publicação',
+      body: (petNickname: string) =>
+        `@${petNickname} acabou de postar algo novo! Confira!`,
+    },
+  },
 }

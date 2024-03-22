@@ -3,15 +3,14 @@ import {
   Dimensions,
   Image,
   KeyboardAvoidingView,
-  Pressable,
   ScrollView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native'
 import React, { useState } from 'react'
 import { NewPostScreenProps } from './types'
-import { ScreenLayout } from 'layouts/ScreenLayout'
 import { BackArrow } from 'components/BackArrow'
 import { useTranslation } from 'contexts/LanguageContext'
 import { useTheme } from 'contexts/ThemeContext'
@@ -22,6 +21,8 @@ import { newPostStylesHandler } from './styles'
 import { createPostInApi } from 'api/posts'
 import { Popup } from 'components/Popup'
 import { Font } from 'hooks/useCustomFonts/types'
+import { sendPushNotification } from 'api/nativeNotify'
+import { ScreenLayout } from 'src/layouts/ScreenLayout'
 
 const windowWidth = Dimensions.get('window').width
 const imageWidth = windowWidth * 0.85
@@ -49,6 +50,12 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
       post.append('textContent', text)
       setPosting(true)
       await createPostInApi(post)
+      await sendPushNotification({
+        title: translation.notifications.newPost.title,
+        body: translation.notifications.newPost.body(selectedPet),
+        dateSent: new Date().toISOString(),
+        bigPictureURL: image.uri,
+      })
       setPosting(false)
       navigation.navigate('Feed', { refresh: true })
     } else {
@@ -80,13 +87,16 @@ export const NewPostScreen = ({ navigation }: NewPostScreenProps) => {
           <View style={styles.container}>
             <ImageSelector />
             {image ? (
-              <Pressable onPress={() => setShowImageSelector(true)}>
+              <TouchableOpacity
+                onPress={() => setShowImageSelector(true)}
+                activeOpacity={0.7}
+              >
                 <Image
                   source={{ uri: image.uri }}
                   style={styles.image}
                   resizeMode="cover"
                 />
-              </Pressable>
+              </TouchableOpacity>
             ) : (
               <View style={styles.image}>
                 <Button

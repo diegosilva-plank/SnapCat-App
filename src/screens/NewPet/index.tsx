@@ -3,16 +3,14 @@ import {
   Image,
   ImageSourcePropType,
   KeyboardAvoidingView,
-  Pressable,
   ScrollView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native'
 import React, { useState } from 'react'
 import { NewPetScreenProps } from './types'
-import { ScreenLayout } from 'layouts/ScreenLayout'
-import { useTranslation } from 'contexts/LanguageContext'
 import { useTheme } from 'contexts/ThemeContext'
 import { useImageSelector } from 'hooks/useImageSelector'
 import { newPetStylesHandler } from './styles'
@@ -21,6 +19,8 @@ import { createPetInApi } from 'api/pets'
 import { Font } from 'hooks/useCustomFonts/types'
 import { Button } from 'components/Button'
 import { Popup } from 'components/Popup'
+import { ScreenLayout } from 'src/layouts/ScreenLayout'
+import { useTranslation } from 'src/contexts/LanguageContext'
 
 export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
   const { translation } = useTranslation()
@@ -87,9 +87,10 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
           </View>
           <View style={styles.container}>
             <ImageSelector />
-            <Pressable
+            <TouchableOpacity
               style={styles.addProfilePicContainer}
               onPress={() => setShowImageSelector(true)}
+              activeOpacity={0.7}
             >
               {image ? (
                 <Image
@@ -107,7 +108,7 @@ export const NewPetScreen = ({ navigation }: NewPetScreenProps) => {
               <Text style={styles.text}>
                 {translation.newPetScreen.addProfilePicture}
               </Text>
-            </Pressable>
+            </TouchableOpacity>
             <View style={styles.inputsContainer}>
               <View style={styles.textInputContainer}>
                 <TextInput

@@ -11,7 +11,7 @@ export const useGallery = (aspect: [number, number] = [16, 9]) => {
       mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: Platform.OS !== 'ios' || aspect[0] === aspect[1],
       aspect: aspect,
-      quality: 0,
+      quality: 0.3,
     })
 
     if (!result.canceled) {

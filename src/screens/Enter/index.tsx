@@ -21,7 +21,7 @@ export const EnterScreen = ({ navigation }: EnterScreenProps) => {
     <SafeAreaView style={style.wrapper}>
       <Image
         source={theme.logos.enter as ImageSourcePropType}
-        style={{ width: 350, height: 350 }}
+        style={{ width: 300, height: 300 }}
       />
       <View style={style.button}>
         <Button

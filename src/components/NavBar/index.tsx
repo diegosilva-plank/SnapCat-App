@@ -2,8 +2,8 @@ import { useTheme } from 'contexts/ThemeContext'
 import {
   Image,
   ImageSourcePropType,
-  Pressable,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from 'react-native'
 import React from 'react'
@@ -17,24 +17,36 @@ export const NavBar = ({ navigation }: NavBarProps) => {
 
   return (
     <View style={[styles.wrapper, styles.bottomBar]}>
-      <Pressable onPress={() => navigation.navigate('Feed')}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Feed')}
+        style={styles.pressable}
+        activeOpacity={0.7}
+      >
         <Image
           source={theme.icons.home as ImageSourcePropType}
           style={{ width: NAVBAR_ICON_SIZE, height: NAVBAR_ICON_SIZE }}
         />
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate('NewPost')}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('NewPost')}
+        style={styles.pressable}
+        activeOpacity={0.7}
+      >
         <Image
           source={theme.icons.addPost as ImageSourcePropType}
           style={{ width: NAVBAR_ICON_SIZE, height: NAVBAR_ICON_SIZE }}
         />
-      </Pressable>
-      <Pressable onPress={() => navigation.navigate('NewPet')}>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('NewPet')}
+        style={styles.pressable}
+        activeOpacity={0.7}
+      >
         <Image
           source={theme.icons.addPet as ImageSourcePropType}
           style={{ width: NAVBAR_ICON_SIZE, height: NAVBAR_ICON_SIZE }}
         />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -47,12 +59,19 @@ const stylesHandler = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      gap: 75,
+      gap: 45,
     },
     bottomBar: {
       position: 'absolute',
       bottom: 0,
       left: 0,
       right: 0,
+    },
+    pressable: {
+      height: '100%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 70,
     },
   })

@@ -36,4 +36,11 @@ export const en: Translation = {
     months: (num: number) => `${num} month${num !== 1 ? 's' : ''} ago`,
     years: (num: number) => `${num} year${num !== 1 ? 's' : ''} ago`,
   },
+  notifications: {
+    newPost: {
+      title: 'New post',
+      body: (petNickname: string) =>
+        `@${petNickname} just posted something new! Check it out!`,
+    },
+  },
 }

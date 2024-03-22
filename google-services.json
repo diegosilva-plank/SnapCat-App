@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791043907210",
+    "project_id": "snapcat-3a249",
+    "storage_bucket": "snapcat-3a249.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791043907210:android:660e2adb4c4d3ff6b69773",
+        "android_client_info": {
+          "package_name": "com.diegojoinplank.SnapCat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFzrDQ-v_4ra5AJ5O6tHQkQggPmLdYM7c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
