@@ -6,4 +6,5 @@ export const ApiRoutes = {
   createPost: `${config.apiUrl}/post/create`,
   createPet: `${config.apiUrl}/pet/create`,
   nativeNotify: `${config.nativeNotifyApiUrl}`,
+  graphql: `${config.graphqlUrl}`,
 }

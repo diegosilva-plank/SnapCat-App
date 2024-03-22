@@ -10,7 +10,7 @@ import { FeedProps } from './types'
 import { ScreenLayout } from 'layouts/ScreenLayout'
 import { Post } from 'components/Post'
 import { Post as PostType } from 'types/Post'
-import { getPostsFromApi } from 'api/posts'
+import { getPostsFromGraphQL } from 'api/posts'
 import { PostSkeleton } from 'components/Post/skeleton'
 
 export const Feed = ({ navigation, route }: FeedProps) => {
@@ -20,7 +20,7 @@ export const Feed = ({ navigation, route }: FeedProps) => {
 
   const getPosts = async () => {
     setLoading(true)
-    const fetchedPosts = await getPostsFromApi()
+    const fetchedPosts = await getPostsFromGraphQL()
     const sortedPosts = fetchedPosts.sort(
       (a, b) =>
         new Date(b.createdUTCDateTime).getTime() -

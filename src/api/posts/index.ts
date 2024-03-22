@@ -18,6 +18,32 @@ export const getPostsFromApi = async () => {
   }
 }
 
+export const getPostsFromGraphQL = async () => {
+  const response = await fetch(ApiRoutes.graphql, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query {
+          posts {
+            createdUTCDateTime
+            mediaUrl
+            pet {
+              nickname
+              profilePictureUrl
+            }
+            textContent
+          }
+        }
+      `,
+    }),
+  })
+  const { data } = (await response.json()) as { data: GetPostData }
+  return data.posts
+}
+
 export const createPostInApi = async (post: FormData) => {
   try {
     const response = await fetch(ApiRoutes.createPost, {

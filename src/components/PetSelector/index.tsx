@@ -1,4 +1,4 @@
-import { getPetsFromApi } from 'api/pets'
+import { getPetsFromGraphQL } from 'api/pets'
 import { useEffect, useState } from 'react'
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native'
 import { Pet } from 'types/Pet'
@@ -16,7 +16,7 @@ export const PetSelector = ({ onSelectPet }: PetSelectorProps) => {
   const [selectedPet, setSelectedPet] = useState<string>('')
 
   const getPets = async () => {
-    const fetchedPets = await getPetsFromApi()
+    const fetchedPets = await getPetsFromGraphQL()
     const sortedPets = fetchedPets.sort((a, b) => {
       if (a.nickname.toLowerCase() < b.nickname.toLowerCase()) {
         return -1

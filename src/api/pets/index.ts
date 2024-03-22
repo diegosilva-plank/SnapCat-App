@@ -18,6 +18,29 @@ export const getPetsFromApi = async () => {
   }
 }
 
+export const getPetsFromGraphQL = async () => {
+  const response = await fetch(ApiRoutes.graphql, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+        query {
+          pets {
+            createdUTCDateTime
+            name
+            nickname
+            profilePictureUrl
+          }
+        }
+      `,
+    }),
+  })
+  const { data } = (await response.json()) as { data: GetPetsData }
+  return data.pets
+}
+
 export const createPetInApi = async (pet: FormData) => {
   const response = await fetch(ApiRoutes.createPet, {
     method: 'POST',

@@ -1,8 +1,9 @@
-import { Pet } from 'types/Pet'
-
 export type Post = {
   createdUTCDateTime: string
   mediaUrl: string
-  pet: Pet
+  pet: {
+    nickname: string
+    profilePictureUrl: string
+  }
   textContent: string
 }

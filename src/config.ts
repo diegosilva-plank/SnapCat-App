@@ -5,4 +5,5 @@ export const config = {
   nativeNotifyAppId: Constants.expoConfig?.extra?.nativeNotifyAppId,
   nativeNotifyAppToken: Constants.expoConfig?.extra?.nativeNotifyAppToken,
   nativeNotifyApiUrl: Constants.expoConfig?.extra?.nativeNotifyApiUrl,
+  graphqlUrl: Constants.expoConfig?.extra?.graphqlUrl,
 }
